@@ -1,58 +1,90 @@
 import React, { useState, useEffect, memo } from 'react'
 import axios from "axios";
-import { Card, Col, Row, Table } from "react-bootstrap";
+import BootstrapTable from 'react-bootstrap-table-next';
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+
 
 
 const DataIndonesia = () => {
   const [covidData, setCovidData] = useState([]);
 
-  const formatNumber = num => String(num).replace(/(.)(?=(\d{3})+$)/g, "$1,");
 
   async function getData() {
-    const res = await fetch('https://coronavirus-tracker-api.herokuapp.com/v2/locations');
+    const res = await fetch('https://corona.lmao.ninja/countries');
     const data = await res.json();
-    console.log(data.locations)
-    setCovidData(data.locations);
+    console.log(data)
+    setCovidData(data);
   }
 
   useEffect(() => {
     getData();
   }, []);
 
+  // function showDescription(cell, row) {
+  //   return cell.confirmed;
+  // }
+
+  // const showDeaths = cell => {return cell.deaths};
+
+  const columns = [
+    {
+      dataField: 'country',
+      text: 'Country',
+      sort: true
+    },
+    {
+      dataField: 'cases',
+      text: 'Total Cases',
+      sort: true
+    },
+    {
+      dataField: 'todayCases',
+      text: 'Today Cases',
+      sort: true,
+      style:{backgroundColor: '#EAC8CA'},
+      formatter: (cell) => { return(<span>
+        <strong>+ { cell } </strong>
+      </span>) ; }
+    },
+    {
+      dataField: 'deaths',
+      text: 'Deaths',
+      sort: true
+    },
+    {
+      dataField: 'todayDeaths',
+      text: 'Today Deaths',
+      sort: true,
+      style:{backgroundColor: '#B8A1C4'},
+      formatter: (cell) => { return(<span>
+        <strong>+ { cell } </strong>
+      </span>) ; }
+    },
+    {
+      dataField: 'recovered',
+      text: 'Recovered',
+      sort: true
+    },
+    {
+      dataField: 'critical',
+      text: 'Critical',
+      sort: true
+    },
+    {
+      dataField: 'casesPerOneMillion',
+      text: 'Cases/Million',
+      sort: true
+    },
+    {
+      dataField: 'deathsPerOneMillion',
+      text: 'Deaths/Million',
+      sort: true
+    },
+  ];
+
+
   return (
-    <Row>
-      <Col md={6}>
-        <h3 className="text-center text-uppercase text-color-orange mb-6">
-          Stats
-        </h3>
-      </Col>
-      <Col md={6}>
-        <Table hover borderless striped responsive>
-          <thead>
-            <tr>
-              <th className="text-uppercase">#</th>
-              <th className="text-uppercase">Country</th>
-              <th className="text-uppercase">Population</th>
-              <th className="text-uppercase">Confirmed</th>
-              <th className="text-uppercase">Deaths</th>
-              <th className="text-uppercase">Recovered</th>
-            </tr>
-          </thead>
-          <tbody>
-            {covidData.map((item, index) => (
-              <tr key={item.id}>
-                <td>{index + 1}</td>
-                <td>{item.country}</td>
-                <td>{item.country_population}</td>
-                <td>{item.latest.confirmed}</td>
-                <td>{item.latest.deaths}</td>
-                <td>{item.latest.recovered}</td>
-              </tr>
-            ))}
-          </tbody>
-        </Table>
-      </Col>
-    </Row>
+    <BootstrapTable  striped hover condensed keyField='id' data={covidData} columns={columns} />
   )
 }
 
