@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import DataIndonesia from './components/Home.js'
-import About from './components/About.js';
+import About from './pages/About.js';
+import Home from './pages/Home.js';
 
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route exact path="/" component={DataIndonesia} />
+          <Route exact path="/" component={Home} />
           <Route path="/about" component={About}/>
         </Switch>
       </Router>
