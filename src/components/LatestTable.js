@@ -1,22 +1,20 @@
 import React, { useState, useEffect, memo } from 'react'
-import axios from "axios";
 import BootstrapTable from 'react-bootstrap-table-next';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 
 
 
 const LatestTable = () => {
-  const [covidData, setCovidData] = useState([]);
+  const [covidData, setCovidData] = useState([]); //this.state yerine state'ler bu şekilde tutuluyor.
 
 
   async function getData() {
     const res = await fetch('https://corona.lmao.ninja/countries');
     const data = await res.json();
-    console.log(data)
     setCovidData(data);
   }
 
-  useEffect(() => {
+  useEffect(() => { //componentDidMount yerine kullanılıyor. PageLoad gibi.
     getData();
   }, []);
 
@@ -45,7 +43,7 @@ const LatestTable = () => {
       dataField: 'todayCases',
       text: 'Today Cases',
       sort: true,
-      style:{backgroundColor: '#F1E0A9'},
+      style:{backgroundColor: '#ffc8c8'},
       formatter: (cell) => { return(<span>
         <strong>+ { cell.toLocaleString() } </strong>
       </span>) ; }
@@ -60,7 +58,7 @@ const LatestTable = () => {
       dataField: 'todayDeaths',
       text: 'Today Deaths',
       sort: true,
-      style:{backgroundColor: '#4B3852'},
+      style:{backgroundColor: '#444f5a'},
       formatter: (cell) => { return(<span>
         <strong style={ { color: 'white' } }>+ { cell } </strong>
       </span>) ; }
@@ -96,13 +94,20 @@ const LatestTable = () => {
     order: 'desc'
   }];
 
+  const rowStyle = { height: 45 , justifyContent: 'center',
+  alignItems: 'center', verticalAlign: 'center'};
 
   return (
-    <BootstrapTable  striped hover condensed
+    <div className='anyClass'>
+    <BootstrapTable striped hover condensed 
+     bootstrap4
      keyField='id' 
      data={covidData} 
      columns={columns}
-      defaultSorted={defaultSorted} />
+     defaultSorted={defaultSorted}
+     rowStyle = {rowStyle}
+      />
+      </div>
   )
 }
 

@@ -1,7 +1,9 @@
-import React from 'react';
+import React ,{ memo } from "react";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import About from './pages/About.js';
-import Home from './pages/Home.js';
+import Home from './pages/Home.js'; 
+
+import "./App.css";
 
 
 function App() {
@@ -17,4 +19,4 @@ function App() {
   );
 }
 
-export default App;
+export default memo(App);
