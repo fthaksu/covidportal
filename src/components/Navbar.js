@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Container, Navbar, Nav } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faChartLine } from '@fortawesome/free-solid-svg-icons'
+import { FormattedMessage } from "react-intl";
 
 const Navigationbar = () => {
   return (
@@ -15,16 +16,16 @@ const Navigationbar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
             <Link to="/" className="nav-link mx-2">
-              <u>Home Page</u>
+              <FormattedMessage id="home_page" />
             </Link>
             <Link to="/map" className="nav-link mx-2">
-              Map
+              <FormattedMessage id="map" />
             </Link>
             <Link to="/forecast" className="nav-link mx-2">
-              Forecast
+               <FormattedMessage id="forecast" />
             </Link>
             <Link to="/about" className="nav-link mx-2">
-              About
+              <FormattedMessage id="about" />
             </Link>
           </Nav>
         </Navbar.Collapse>
