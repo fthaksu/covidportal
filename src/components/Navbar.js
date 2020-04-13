@@ -10,7 +10,7 @@ const Navigationbar = () => {
     <Navbar variant="dark" expand="lg" sticky="top">
       <Container>
         <Link to="/" className="navbar-brand">
-          <FontAwesomeIcon icon={faChartLine}/> <span>&nbsp;</span> Covid Stats
+          <FontAwesomeIcon icon={faChartLine}/> <span>&nbsp;</span> Covid Panel
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
