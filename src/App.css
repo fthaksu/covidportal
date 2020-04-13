@@ -2,6 +2,12 @@ body {
   font-family: 'Roboto Condensed', sans-serif;
 }
 
+html,
+body {
+ height: 100%;
+ position: relative;
+}
+
 .navbar {
   background-color: #2d4059 !important;
 }
@@ -13,9 +19,12 @@ body {
 .nav-link {
   color: #d9faff !important;
   font-weight: 550;
-  text-decoration: underline;
-  text-underline-position: under;
 }
+
+.nav-link:hover {
+  color: rgb(118, 228, 255) !important;
+}
+
 
 
 .text-color-orange {
@@ -43,4 +52,27 @@ th, td {
 
 .card-columns {
   column-count: 3;
+}
+
+
+
+svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.color-bar-map {
+  float: right;
+  height: 24px;
+  width: 150px;
+  background: linear-gradient(to right, #ffddd8 0%, #bb0c0c 100%);
+}
+
+.color-bar-map span {
+  color: rgb(83, 50, 50);
+}
+
+
+.controls{
+  width: 100px;
 }

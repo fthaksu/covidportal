@@ -29,7 +29,7 @@ const LatestTable = () => {
   const numberFormatter = cell => {return(<span> <strong>{ cell.toLocaleString()}</strong></span>)};
   const countryFormatter = cell  => {
     const language = navigator.language.split(/[-_]/)[0];  
-    const iso2 = covidData.filter(item => item.country === cell).map(post => post.countryInfo.iso2)
+    const iso2 = covidData.filter(item => item.country === cell).map(post => post.countryInfo.iso2) //filter map örneği
     return(
     <span>{(language == 'tr') ? (countryNames[iso2] == '' ? {cell} : countryNames[iso2]) : {cell} }</span>
     )

@@ -2,6 +2,8 @@ import React ,{ memo } from "react";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import About from './pages/About.js';
 import Home from './pages/Home.js'; 
+import Maps from "./pages/Maps.js";
+
 
 import "./App.css";
 
@@ -12,6 +14,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/maps" component={Maps} />
           <Route path="/about" component={About}/>
         </Switch>
       </Router>

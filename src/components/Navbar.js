@@ -18,7 +18,7 @@ const Navigationbar = () => {
             <Link to="/" className="nav-link mx-2">
               <FormattedMessage id="home_page" />
             </Link>
-            <Link to="/map" className="nav-link mx-2">
+            <Link to="/maps" className="nav-link mx-2">
               <FormattedMessage id="map" />
             </Link>
             <Link to="/forecast" className="nav-link mx-2">
