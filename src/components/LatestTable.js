@@ -3,17 +3,21 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import { FormattedMessage } from "react-intl";
 import countryNames from "../i18n/countrynames.json"
+import {Spinner } from "react-bootstrap";
+
 
 
 
 const LatestTable = () => {
   const [covidData, setCovidData] = useState([]); //this.state yerine state'ler bu şekilde tutuluyor.
+  const [loading, setLoading] = useState(true)
 
 
   async function getData() {
-    const res = await fetch('https://corona.lmao.ninja/countries');
+    const res = await fetch('https://corona.lmao.ninja/v2/countries');
     const data = await res.json();
     setCovidData(data);
+    setLoading(false);
   }
 
   useEffect(() => { //componentDidMount yerine kullanılıyor. PageLoad gibi.

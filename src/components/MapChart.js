@@ -15,15 +15,6 @@ import { Row, Col } from "react-bootstrap";
 const geoUrl =
     "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
-const rounded = num => {
-    if (num > 1000000000) {
-        return Math.round(num / 100000000) / 10 + "Bn";
-    } else if (num > 1000000) {
-        return Math.round(num / 100000) / 10 + "M";
-    } else {
-        return Math.round(num / 100) / 10 + "K";
-    }
-};
 
 const colorScale = scaleLinear()
     .domain([0, 175000])
@@ -35,7 +26,7 @@ const MapChart = ({ setTooltipContent }) => {
     const [covidData, setCovidData] = useState([]);
 
     async function getData() {
-        const res = await fetch('https://corona.lmao.ninja/countries');
+        const res = await fetch('https://corona.lmao.ninja/v2/countries');
         const data = await res.json();
         setCovidData(data);
     }

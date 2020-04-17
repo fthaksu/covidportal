@@ -1,5 +1,14 @@
+.container {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  min-width: 650px !important;
+  padding: 20px;
+  width: 100%;
+}
+
 body {
   font-family: 'Roboto Condensed', sans-serif;
+  
 }
 
 html,
@@ -12,13 +21,23 @@ body {
   background-color: #2d4059 !important;
 }
 
+.navbar-brand{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+.card-columns{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 200;
+}
+
 .navbar-toggler {
   border-color: transparent !important;
 }
 
 .nav-link {
   color: #d9faff !important;
-  font-weight: 550;
+  font-weight: 500;
 }
 
 .nav-link:hover {
@@ -174,4 +193,25 @@ color:#fff;
 text-decoration:none;
 }
 
+.chart{
+  height: 450px;
+  width: 850px;
+}
 
+.country-form{
+  width: 300px;
+  text-align: center;
+}
+
+.nav-link:after {
+  content: "|";
+  position: absolute;
+  margin-left: 10px;
+  color: #4e7f96;
+}
+
+@media (max-width: 768px) {
+  .nav-link:after {
+    display: none;
+  }
+}

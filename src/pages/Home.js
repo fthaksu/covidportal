@@ -10,7 +10,7 @@ export default class Home extends Component {
         return (
             <Layouts>
               <Stats />
-            <section className="my-4 py-4">
+            <section className="my-4 py-3">
             <LatestTable/>
             </section>
             </Layouts>
