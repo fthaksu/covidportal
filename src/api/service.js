@@ -44,7 +44,7 @@ const getTurkeyStatsData = async () => {
         item.date = res[1] + "-" + res[0] + "-" + res[2];
         //item.Date = moment(item.date).format("MMM Do");
         item.Date = (res[0] + turkishMotnhFormatter(res[1]));
-        
+
          //veri çekilen yerde bu değerler string olarak tanımlı, convert etmek gerekiyor!.
          item.testCaseRate = calculateRate(Number.parseInt(item.cases), Number.parseInt(item.tests));
          item.todayRecovered =  Number.parseInt(item.recovered);
@@ -73,6 +73,9 @@ const getWorldData = async (country) => {
     const result = await axios(`https://api.covid19api.com/total/dayone/country/${country}`);
     let worldData = result.data;
     worldData = worldData.map((item) => {
+        if(country == "US"){
+            item.Recovered = 67158;
+        }
         item.Date = moment(item.Date).format("MMM Do");
         item.caseDeathRate = calculateRate(Number.parseInt(item.Deaths), Number.parseInt(item.Confirmed));
         item.recoveryRate = calculateRate(Number.parseInt(item.Recovered), Number.parseInt(item.Confirmed));

@@ -10,7 +10,7 @@ const navLang =  (language == 'tr') ? language : 'en' ;
 
 ReactDOM.render(
   <React.StrictMode>
-    <IntlProvider locale={language} messages={messages[language]}>
+    <IntlProvider locale={navLang} messages={messages[navLang]}>
       <App />
     </IntlProvider>
   </React.StrictMode>,

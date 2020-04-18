@@ -64,33 +64,33 @@ const Country = (props) => {
     <Layouts>
       <div>
         <Container className="country-container">
-          <Row className="justify-content-md-center">
-            <Col md="auto"><CountryCard selectedCountry={country} handler={updateCountry} /></Col>
-          </Row>
+        <div className="customcenter">
+        <CountryCard selectedCountry={country} handler={updateCountry} />
+        </div>
           <Row>
            <CountryStats country={country}/>
           </Row>
           <Row>
             <Col>
-              <div>
+              <div className="graph">
                 <h4><FormattedMessage id="total_cases"/> {!loading ? '' : (<Button variant="primary" disabled><Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> <FormattedMessage id="loading" /> </Button>)} </h4>
                 <Graph
                   weekData={graphData}
                   XAxisDatakey={"Date"}
                   AreaDataKey={"Confirmed"}
-                  fill={"#8884d8"}
+                  fill={"#84ACEC"}
                   name={intl.formatMessage({id: "total_cases"})}
                 />
               </div>
             </Col>
             <Col>
-              <div>
+              <div className="graph">
                 <h4><FormattedMessage id="logarithmic_cases"/> {!loading ? '' : (<Button variant="primary" disabled><Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> <FormattedMessage id="loading" /> </Button>)} </h4>
                 <Graph
                   weekData={country == "TR" ? graphData : logarithmicData}
                   XAxisDatakey={"Date"}
                   AreaDataKey={"dailyConfirmed"}
-                  fill={"#FDC272"}
+                  fill={"#8A80D7"}
                   name={intl.formatMessage({id: "logarithmic_cases"})}
                 />
               </div>
@@ -101,19 +101,19 @@ const Country = (props) => {
           <br />
           <Row>
             <Col>
-              <div>
+              <div className="graph">
                 <h4><FormattedMessage id="deaths"/>  {!loading ? '' : (<Button variant="primary" disabled><Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> <FormattedMessage id="loading" /> </Button>)} </h4>
                 <Graph
                   weekData={graphData}
                   XAxisDatakey={"Date"}
                   AreaDataKey={"Deaths"}
-                  fill={"#df2808"}
+                  fill={"#c81912"}
                   name={intl.formatMessage({id: "deaths"})}
                 />
               </div>
             </Col>
             <Col>
-              <div>
+              <div className="graph">
                 <h4><FormattedMessage id="recovered"/>  {!loading ? '' : (<Button variant="primary" disabled><Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> <FormattedMessage id="loading" /> </Button>)} </h4>
                 <Graph
                   weekData={graphData}
@@ -131,7 +131,7 @@ const Country = (props) => {
           {country == "TR" ? (
           <Row>
             <Col>
-              <div>
+              <div className="graph">
                 <h4><FormattedMessage id="intubated"/> {!loading ? '' : (<Button variant="primary" disabled><Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> <FormattedMessage id="loading" /> </Button>)} </h4>
                 <Graph
                   weekData={graphData}
@@ -143,13 +143,13 @@ const Country = (props) => {
               </div>
             </Col>
             <Col>
-              <div>
+              <div className="graph">
                 <h4><FormattedMessage id="intensive_care"/>  {!loading ? '' : (<Button variant="primary" disabled><Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> <FormattedMessage id="loading" /> </Button>)} </h4>
                 <Graph
                   weekData={graphData}
                   XAxisDatakey={"Date"}
                   AreaDataKey={"totalIntensiveCare"}
-                  fill={"#A7624C"}
+                  fill={"#FDC272"}
                   name={intl.formatMessage({id: "intensive_care"})}
                 />
               </div>
@@ -162,19 +162,19 @@ const Country = (props) => {
           {country == "TR" ? (
           <Row>
             <Col>
-              <div>
+              <div className="graph">
                 <h4><FormattedMessage id="case_test_rate"/>  {!loading ? '' : (<Button variant="primary" disabled><Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> <FormattedMessage id="loading" /> </Button>)} </h4>
                 <Graph
                   weekData={graphData}
                   XAxisDatakey={"Date"}
                   AreaDataKey={"testCaseRate"}
-                  fill={"#4CA6A7"}
+                  fill={"#b0a160"}
                   name={intl.formatMessage({id: "case_test_rate"})}
                 />
               </div>
             </Col>
             <Col>
-              <div>
+              <div className="graph">
                 <h4><FormattedMessage id="death_case_rate"/>  {!loading ? '' : (<Button variant="primary" disabled><Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> <FormattedMessage id="loading" /> </Button>)} </h4>
                 <Graph
                   weekData={graphData}
@@ -188,7 +188,7 @@ const Country = (props) => {
           </Row> ) : (
             <Row>
             <Col>
-              <div>
+              <div className="graph">
                 <h4><FormattedMessage id="recovery_rate2"/>  {!loading ? '' : (<Button variant="primary" disabled><Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> <FormattedMessage id="loading" /> </Button>)} </h4>
                 <Graph
                   weekData={graphData}
@@ -200,7 +200,7 @@ const Country = (props) => {
               </div>
             </Col>
             <Col>
-              <div>
+              <div className="graph">
                 <h4><FormattedMessage id="death_case_rate"/>  {!loading ? '' : (<Button variant="primary" disabled><Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> <FormattedMessage id="loading" /> </Button>)} </h4>
                 <Graph
                   weekData={graphData}

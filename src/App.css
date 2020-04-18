@@ -1,14 +1,13 @@
 .container {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  min-width: 650px !important;
   padding: 20px;
   width: 100%;
 }
 
 body {
   font-family: 'Roboto Condensed', sans-serif;
-  
+  min-width:640px; 
 }
 
 html,
@@ -72,7 +71,7 @@ footer {
 }
 
 .anyClass a{
-  color: rgb(54, 52, 214);
+  color: rgb(42, 40, 150);
 }
 
 .anyClass a:hover{
@@ -212,11 +211,6 @@ text-decoration:none;
   width: 850px;
 }
 
-.country-form{
-  width: 300px;
-  text-align: center;
-  margin-top:-30px;
-}
 
 .nav-link:after {
   content: "|";
@@ -227,6 +221,7 @@ text-decoration:none;
 
 .country-container{
   text-align: center;
+  align-items: center;
 }
 
 .card-deck .card{
@@ -234,8 +229,36 @@ text-decoration:none;
   color:white;
 }
 
-@media (max-width: 768px) {
+.country-form{
+  width: 300px;
+  margin: auto;
+  margin-top:-30px;
+}
+
+@media (max-width: 900px) {
   .nav-link:after {
     display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav-link:after {
+    display: none;
+  }
+
+  .nav-link{
+    font-weight: bold;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    color: mintcream !important;
+  }
+  .card-deck .card{
+    width: 150px;
+    color:white;
+  }
+
+  .graph{
+    width: 675px;
+    margin-bottom: 30px;
   }
 }

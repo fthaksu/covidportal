@@ -39,9 +39,9 @@
         "death_critical" : "Death / Critical",
         "recovery_rate2" : "Recovery Rate",
         "select_country" : "Select Country",
-        "forecast_message1" : "Forward-looking data predictions will include at this page soon. For example; 'What happens tomorrow in Turkey?', 'A week later, many people will be sick?' 'What will the pandemic be like after a month?' For such questions, prediction models will be added using various data analysis methods.",
-        "forecast_message2" : "",
-        "forecast_list": ""
+        "forecast_message1" : "Forward-looking data predictions will include at this page soon. For example; For such questions, prediction models will be added using various data analysis methods.",
+        "forecast_message2" : ".",
+        "forecast_list": "<ul><li>What happens tomorrow in Turkey?</li><li>A week later, many people will be sick?</li><li>What will the pandemic be like after a month</li></ul> "
     },
     "tr": {
         "total_cases": "Toplam Vaka",

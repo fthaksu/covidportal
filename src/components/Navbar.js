@@ -8,7 +8,7 @@ import logo from '../images/logo.png'
 
 const Navigationbar = () => {
   return (
-    <Navbar className="navbar-expand-md py-1" variant="dark" expand="lg" sticky="top">
+    <Navbar className="navbar-expand-xl py-1" variant="dark" expand="lg" sticky="top">
       <Container>
       <img src={logo} width="45px" height="45x"/>
         <Link to="/" className="navbar-brand">
