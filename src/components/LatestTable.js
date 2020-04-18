@@ -4,6 +4,7 @@ import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import { FormattedMessage } from "react-intl";
 import countryNames from "../i18n/countrynames.json"
 import {Spinner } from "react-bootstrap";
+import { Link } from 'react-router-dom';
 
 
 
@@ -35,7 +36,7 @@ const LatestTable = () => {
     const language = navigator.language.split(/[-_]/)[0];  
     const iso2 = covidData.filter(item => item.country === cell).map(post => post.countryInfo.iso2) //filter map örneği
     return(
-    <span>{(language == 'tr') ? (countryNames[iso2] == '' ? {cell} : countryNames[iso2]) : {cell} }</span>
+    <span><Link to={{ pathname: "/country/"+iso2[0] }}>{(language == 'tr') ? (countryNames[iso2] == '' ? {cell} : countryNames[iso2]) : {cell} }</Link></span>
     )
   };
 

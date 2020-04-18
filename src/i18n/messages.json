@@ -27,7 +27,21 @@
         "soft_eng" : "Software Engineer",
         "nav_text" : "covid stats",
         "country-detail" : "Country Detail",
-        "loading" : "Loading..."
+        "loading" : "Loading...",
+        "ask_questions" : "For your questions and suggestions ",
+        "click" : "click here.",
+        "logarithmic_cases" : "Logarithmic Cases",
+        "intubated" : "Intubated",
+        "intensive_care" : "Intensive Care",
+        "case_test_rate" : "Case / Test",
+        "death_case_rate" : "Death / Case",
+        "case_test" : "Case / Test",
+        "death_critical" : "Death / Critical",
+        "recovery_rate2" : "Recovery Rate",
+        "select_country" : "Select Country",
+        "forecast_message1" : "Forward-looking data predictions will include at this page soon. For example; 'What happens tomorrow in Turkey?', 'A week later, many people will be sick?' 'What will the pandemic be like after a month?' For such questions, prediction models will be added using various data analysis methods.",
+        "forecast_message2" : "",
+        "forecast_list": ""
     },
     "tr": {
         "total_cases": "Toplam Vaka",
@@ -57,6 +71,20 @@
         "soft_eng" : "Yazılım Mühendisi",
         "nav_text" : "Covid İstatistikleri",
         "country-detail" : "Ülke Detayı",
-        "loading" : "Yükleniyor..."
+        "loading" : "Yükleniyor...",
+        "ask_questions" : "Soru ve önerileriniz için ",
+        "click" : "tıklayınız.",
+        "logarithmic_cases" : "Günlük Vaka",
+        "intubated" : "Entübe",
+        "intensive_care" : "Yoğun Bakım",
+        "case_test_rate" : "Pozitif Çıkan Test Oranı",
+        "death_case_rate" : "Hasta Ölüm Oranı",
+        "case_test" : "Pozitif Test Oranı",
+        "death_critical" : "Ölüm / Yoğun Bakım",
+        "recovery_rate2" : "İyileşme Oranı",
+        "select_country" : "Ülke Seçimi",
+        "forecast_message1" : "Çok yakında bu sayfada, ileriye dönük veri tahminleri yer alacak. Örneğin; ",
+        "forecast_list" : "<ul><li>Yarın Türkiye'de durum ne olur?</li><li>Bir hafta sonra enfekte kişi sayısı kaç olacak?</li><li>Bir ay sonra salgın ne durumda olacak?</li></ul>",
+        "forecast_message2" : "gibi sorular için çeşitli sayısal veri analizi yöntemleri kullanılarak tahmin modelleri eklenecektir."
     }
 }

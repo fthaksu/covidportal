@@ -4,6 +4,7 @@ import About from './pages/About.js';
 import Home from './pages/Home.js'; 
 import Maps from "./pages/Maps.js";
 import Country from "./pages/Country.js";
+import Forecast from "./pages/Forecast"
 
 
 import "./App.css";
@@ -16,8 +17,9 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/maps" component={Maps} />
-          <Route exact path="/country" component={Country} />
-          <Route path="/about" component={About}/>
+          <Route exact path="/country/:id" component={Country} />
+          <Route exact path="/about" component={About}/>
+          <Route exact path="/forecast" component={Forecast}/>
         </Switch>
       </Router>
     </div>

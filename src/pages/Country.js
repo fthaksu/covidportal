@@ -1,32 +1,48 @@
 import React, { useState, useEffect, memo } from "react";
 import Graph from "../components/Graph";
 import CountryCard from "../components/CountryCard";
+import CountryStats from "../components/CountryStats"
 import axios from "axios";
 import moment from "moment";
 import { Container, Row, Col, Button, Spinner } from "react-bootstrap";
-import { FormattedMessage } from "react-intl";
+import {useIntl,FormattedMessage } from "react-intl";
 import Layouts from "../components/Layouts";
+import {getTurkeyData,getWorldData} from "../api/service"
 
-const Country = () => {
+const Country = (props) => {
   const [todayData, setTodayData] = useState({});
   const [graphData, setGraphData] = useState({});
-  const [country, setCountry] = useState("tr");
+  const [country, setCountry] = useState("");
   const [logarithmicData, setLogarithmicData] = useState({});
   const [loading, setLoading] = useState(true);
 
+  const intl = useIntl();
 
   const getData = async () => {
-    const result = await axios(`https://api.covid19api.com/total/dayone/country/${country}`);
-    setTodayData(result.data[result.data.length - 1]);
-    let threeMonthsData = result.data;
-    threeMonthsData = threeMonthsData.map((item) => {
-      item.Date = moment(item.Date).format("MMM Do");
-      return item;
-    });
-    setGraphData(threeMonthsData);
-    storeDataInDatabase(threeMonthsData);
-    setLoading(false);
+    setLoading(true);
+    if (country === "TR") {
+        let data = await getTurkeyData(); //from api, async-await
+        setGraphData(data);
+        setLoading(false);
+    }
+    else {
+      let countryData = await getWorldData(country);
+      setGraphData(countryData);
+      storeDataInDatabase(countryData);
+      setLoading(false);
+    }
+
   };
+
+  useEffect(() => {
+    setCountry(props.match.params.id);
+  }, [props])
+
+  useEffect(() => {
+    setLoading(true);
+    getData();
+  }, [country]);
+
 
   function updateCountry(updatedCountry) {
     setLoading(true);
@@ -44,40 +60,38 @@ const Country = () => {
     setLogarithmicData(tempArray); //set state
   }
 
-  useEffect(() => {
-    getData();
-  }, []);
-  useEffect(() => {
-    getData();
-  }, [country]);
-
   return (
     <Layouts>
       <div>
-        <Container>
+        <Container className="country-container">
           <Row className="justify-content-md-center">
-            <Col md="auto"><CountryCard handler={updateCountry} /></Col>
+            <Col md="auto"><CountryCard selectedCountry={country} handler={updateCountry} /></Col>
+          </Row>
+          <Row>
+           <CountryStats country={country}/>
           </Row>
           <Row>
             <Col>
               <div>
-                <h4>Total Cases {!loading ? '' : (<Button variant="primary" disabled><Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> <FormattedMessage id="loading" /> </Button>)} </h4>
+                <h4><FormattedMessage id="total_cases"/> {!loading ? '' : (<Button variant="primary" disabled><Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> <FormattedMessage id="loading" /> </Button>)} </h4>
                 <Graph
                   weekData={graphData}
                   XAxisDatakey={"Date"}
                   AreaDataKey={"Confirmed"}
                   fill={"#8884d8"}
+                  name={intl.formatMessage({id: "total_cases"})}
                 />
               </div>
             </Col>
             <Col>
               <div>
-                <h4>Logaritmic Cases {!loading ? '' : (<Button variant="primary" disabled><Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> <FormattedMessage id="loading" /> </Button>)} </h4>
+                <h4><FormattedMessage id="logarithmic_cases"/> {!loading ? '' : (<Button variant="primary" disabled><Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> <FormattedMessage id="loading" /> </Button>)} </h4>
                 <Graph
-                  weekData={logarithmicData}
+                  weekData={country == "TR" ? graphData : logarithmicData}
                   XAxisDatakey={"Date"}
                   AreaDataKey={"dailyConfirmed"}
-                  fill={"#E0CE72"}
+                  fill={"#FDC272"}
+                  name={intl.formatMessage({id: "logarithmic_cases"})}
                 />
               </div>
 
@@ -88,28 +102,117 @@ const Country = () => {
           <Row>
             <Col>
               <div>
-                <h4>Deaths {!loading ? '' : (<Button variant="primary" disabled><Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> <FormattedMessage id="loading" /> </Button>)} </h4>
+                <h4><FormattedMessage id="deaths"/>  {!loading ? '' : (<Button variant="primary" disabled><Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> <FormattedMessage id="loading" /> </Button>)} </h4>
                 <Graph
                   weekData={graphData}
                   XAxisDatakey={"Date"}
                   AreaDataKey={"Deaths"}
                   fill={"#df2808"}
+                  name={intl.formatMessage({id: "deaths"})}
                 />
               </div>
             </Col>
             <Col>
               <div>
-                <h4>Recovered {!loading ? '' : (<Button variant="primary" disabled><Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> <FormattedMessage id="loading" /> </Button>)} </h4>
+                <h4><FormattedMessage id="recovered"/>  {!loading ? '' : (<Button variant="primary" disabled><Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> <FormattedMessage id="loading" /> </Button>)} </h4>
                 <Graph
                   weekData={graphData}
                   XAxisDatakey={"Date"}
                   AreaDataKey={"Recovered"}
                   fill={"#26e760"}
+                  name={intl.formatMessage({id: "recovered"})}
                 />
               </div>
 
             </Col>
           </Row>
+          <br />
+          <br />
+          {country == "TR" ? (
+          <Row>
+            <Col>
+              <div>
+                <h4><FormattedMessage id="intubated"/> {!loading ? '' : (<Button variant="primary" disabled><Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> <FormattedMessage id="loading" /> </Button>)} </h4>
+                <Graph
+                  weekData={graphData}
+                  XAxisDatakey={"Date"}
+                  AreaDataKey={"totalIntubated"}
+                  fill={"#FD72FB"}
+                  name={intl.formatMessage({id: "intubated"})}
+                />
+              </div>
+            </Col>
+            <Col>
+              <div>
+                <h4><FormattedMessage id="intensive_care"/>  {!loading ? '' : (<Button variant="primary" disabled><Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> <FormattedMessage id="loading" /> </Button>)} </h4>
+                <Graph
+                  weekData={graphData}
+                  XAxisDatakey={"Date"}
+                  AreaDataKey={"totalIntensiveCare"}
+                  fill={"#A7624C"}
+                  name={intl.formatMessage({id: "intensive_care"})}
+                />
+              </div>
+
+            </Col>
+          </Row>
+           ) : ""}
+           <br />
+          <br />
+          {country == "TR" ? (
+          <Row>
+            <Col>
+              <div>
+                <h4><FormattedMessage id="case_test_rate"/>  {!loading ? '' : (<Button variant="primary" disabled><Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> <FormattedMessage id="loading" /> </Button>)} </h4>
+                <Graph
+                  weekData={graphData}
+                  XAxisDatakey={"Date"}
+                  AreaDataKey={"testCaseRate"}
+                  fill={"#4CA6A7"}
+                  name={intl.formatMessage({id: "case_test_rate"})}
+                />
+              </div>
+            </Col>
+            <Col>
+              <div>
+                <h4><FormattedMessage id="death_case_rate"/>  {!loading ? '' : (<Button variant="primary" disabled><Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> <FormattedMessage id="loading" /> </Button>)} </h4>
+                <Graph
+                  weekData={graphData}
+                  XAxisDatakey={"Date"}
+                  AreaDataKey={"caseDeathRate"}
+                  fill={"#9A4CA7"}
+                  name={intl.formatMessage({id: "death_case_rate"})}
+                />
+              </div>
+            </Col>
+          </Row> ) : (
+            <Row>
+            <Col>
+              <div>
+                <h4><FormattedMessage id="recovery_rate2"/>  {!loading ? '' : (<Button variant="primary" disabled><Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> <FormattedMessage id="loading" /> </Button>)} </h4>
+                <Graph
+                  weekData={graphData}
+                  XAxisDatakey={"Date"}
+                  AreaDataKey={"recoveryRate"}
+                  fill={"#4CA6A7"}
+                  name={intl.formatMessage({id: "recovery_rate2"})}
+                />
+              </div>
+            </Col>
+            <Col>
+              <div>
+                <h4><FormattedMessage id="death_case_rate"/>  {!loading ? '' : (<Button variant="primary" disabled><Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> <FormattedMessage id="loading" /> </Button>)} </h4>
+                <Graph
+                  weekData={graphData}
+                  XAxisDatakey={"Date"}
+                  AreaDataKey={"caseDeathRate"}
+                  fill={"#9A4CA7"}
+                  name={intl.formatMessage({id: "death_case_rate"})}
+                />
+              </div>
+            </Col>
+          </Row>
+          )}
         </Container>
       </div>
     </Layouts>

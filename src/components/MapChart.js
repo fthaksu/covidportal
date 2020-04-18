@@ -17,8 +17,8 @@ const geoUrl =
 
 
 const colorScale = scaleLinear()
-    .domain([0, 175000])
-    .range(["#ffedea", "#E52020"]);
+    .domain([0, 100000])
+    .range(["#E6E6E6", "#FF862D"]);
 
 const MapChart = ({ setTooltipContent }) => {
 

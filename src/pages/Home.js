@@ -9,10 +9,10 @@ export default class Home extends Component {
     render() {
         return (
             <Layouts>
-              <Stats />
-            <section className="my-4 py-3">
-            <LatestTable/>
-            </section>
+                <Stats />
+                <section className="my-4 py-3">
+                    <LatestTable />
+                </section>
             </Layouts>
         )
     }

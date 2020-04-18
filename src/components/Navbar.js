@@ -12,7 +12,7 @@ const Navigationbar = () => {
       <Container>
       <img src={logo} width="45px" height="45x"/>
         <Link to="/" className="navbar-brand">
-        <span>&nbsp;</span>Covidst.com <small class="text-muted"> / <FormattedMessage id="nav_text"></FormattedMessage></small>
+        <span>&nbsp;</span>Covidst.com <small className="text-muted"> / <FormattedMessage id="nav_text"></FormattedMessage></small>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -23,7 +23,7 @@ const Navigationbar = () => {
             <Link to="/maps" className="nav-link mx-2">
               <FormattedMessage id="map" />
             </Link>
-            <Link to="/country" className="nav-link mx-2">
+            <Link to='/country/TR' className="nav-link mx-2">
               <FormattedMessage id="country-detail" />
             </Link>
             <Link to="/forecast" className="nav-link mx-2">

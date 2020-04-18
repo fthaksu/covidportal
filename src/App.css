@@ -31,6 +31,12 @@ body {
   font-weight: 200;
 }
 
+.card-deck{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 200;
+  text-align: left;
+}
+
 .navbar-toggler {
   border-color: transparent !important;
 }
@@ -63,6 +69,14 @@ footer {
 .anyClass {
   height:1700px;
   overflow-y: scroll;
+}
+
+.anyClass a{
+  color: rgb(54, 52, 214);
+}
+
+.anyClass a:hover{
+  color: rgb(91, 153, 235);
 }
 
 th, td {
@@ -201,6 +215,7 @@ text-decoration:none;
 .country-form{
   width: 300px;
   text-align: center;
+  margin-top:-30px;
 }
 
 .nav-link:after {
@@ -208,6 +223,15 @@ text-decoration:none;
   position: absolute;
   margin-left: 10px;
   color: #4e7f96;
+}
+
+.country-container{
+  text-align: center;
+}
+
+.card-deck .card{
+  width: 260px;
+  color:white;
 }
 
 @media (max-width: 768px) {

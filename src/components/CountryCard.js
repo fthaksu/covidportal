@@ -6,8 +6,13 @@ import countryNames from '../i18n/countrynames.json'
 
 
  const CountryCard = (props) => {
-    const [country, setCountry] = useState("TR");
+    const [country, setCountry] = useState(props.selectedCountry);
 
+    useEffect(() => {
+      setCountry(props.selectedCountry);
+    }, [props.selectedCountry])
+
+  
     const handleChange = (event) => {
         props.handler(event.target.value); //Country.js'deki updateCountry'i tetikler.
         setCountry(event.target.value);
@@ -17,13 +22,13 @@ import countryNames from '../i18n/countrynames.json'
         <div className="country-form">
           <Form>
             <FormGroup>
-              <FormLabel>Select Country</FormLabel>
+              <FormLabel><FormattedMessage id="select_country" /></FormLabel>
               <FormControl
                 as='select'
                 name='country'
                 placeholder='Select..'
-                defaultValue={country}
                 onChange={handleChange}
+                value={country}
               >
               {Object.keys(countryNames).
                 sort((a,b) => countryNames[a].localeCompare(countryNames[b]))

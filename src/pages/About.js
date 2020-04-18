@@ -15,8 +15,7 @@ const About = () => {
         <div className="jumbotron">
           <h1 className="display-4">Covidst<small class="text-muted">.com</small></h1>
           <p className="lead"><FormattedMessage  id="about_message" 
-             values={{
-                      u: (...chunks) => (
+             values={{u: (...chunks) => (
                         <u>
                           {chunks}
                         </u>)}}
@@ -32,6 +31,7 @@ const About = () => {
             <li><a href="https://www.react-simple-maps.io" target="_blank">React Simple Maps</a> - <FormattedMessage id="ui_library"/></li>
           </ul>
           <br/>
+
     		<div class="d-flex justify-content-center">
     		    <div class="card profile-card-3">
     		        <div class="background-block">
@@ -49,6 +49,7 @@ const About = () => {
                     </div>
                 </div>
     		</div>
+        { /*<h6><FormattedMessage id="ask_questions"/><a href="mailto:fatihaksu42@gmail.com"><FormattedMessage id="click"/></a></h6> */}
         </div>
       </Layouts>
     );

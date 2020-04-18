@@ -55,7 +55,7 @@ const Stats = () => {
                     <div className="card-body">
                         {loading ? (<Spinner animation="border" />) :
                             <h3 className="card-title"> {numberFormatter(statsData.cases)}</h3>}
-                        <p className="card-text font-italic"><FormattedMessage id="today" />: +{numberFormatter(statsData.todayCases)}</p>
+                        <p className="card-text font-italic"><FormattedMessage id="today" />:  <span className="font-weight-bold"> +{numberFormatter(statsData.todayCases)}</span></p>
                     </div>
                 </div>
                 <div className="card text-white bg-success mb-6">
@@ -70,7 +70,7 @@ const Stats = () => {
                     <div className="card-body">
                         {loading ? (<Spinner animation="border" />) :
                             <h3 className="card-title"> {numberFormatter(statsData.deaths)}</h3>}
-                        <p className="card-text font-italic"><FormattedMessage id="today" /> : +{numberFormatter(statsData.todayDeaths)}</p>
+                        <p className="card-text font-italic"><FormattedMessage id="today" /> : <span className="font-weight-bold">+{numberFormatter(statsData.todayDeaths)}</span></p>
                     </div>
                 </div>
                 <div className="card text-white bg-danger mb-6">
@@ -85,7 +85,7 @@ const Stats = () => {
                     <div className="card-body">
                         {loading ? (<Spinner animation="border" />) :
                             <h3 className="card-title"> {calculateRate(statsData.deaths, statsData.cases)}</h3>}
-                        <p className="card-text font-italic"><FormattedMessage id="recovery_rate" /> : {calculateRate(statsData.recovered, statsData.cases)}</p>
+                        <p className="card-text font-italic"><FormattedMessage id="recovery_rate" /> :<span className="font-weight-bold">{calculateRate(statsData.recovered, statsData.cases)}</span></p>
                     </div>
                 </div>
                 <div className="card text-white bg-info mb-6">

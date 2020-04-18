@@ -7,6 +7,7 @@ import {
   CartesianGrid,
   ResponsiveContainer,
   Tooltip,
+  Legend,
 } from "recharts";
 
 export default class Graph extends PureComponent {
@@ -27,8 +28,9 @@ export default class Graph extends PureComponent {
             <XAxis dataKey={this.props.XAxisDatakey} />
             <YAxis />
             <Tooltip />
+            
 
-            <Area
+            <Area name={this.props.name}
               strokeWidth={2}
               type="monotone"
               dataKey={this.props.AreaDataKey}
