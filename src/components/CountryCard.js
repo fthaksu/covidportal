@@ -2,11 +2,16 @@ import React, { memo, useState, useEffect } from 'react'
 import { FormattedMessage } from "react-intl";
 import {Form, FormGroup,FormLabel, FormControl, option } from "react-bootstrap";
 import countryNames from '../i18n/countrynames.json'
+import countryNamesEN from '../i18n/countrynamesEN.json'
 
 
 
  const CountryCard = (props) => {
     const [country, setCountry] = useState(props.selectedCountry);
+
+    let language = navigator.language.split(/[-_]/)[0]; 
+    const navLang =  (language == 'tr') ? language : 'en' ; 
+    let selectedCountryNames = (navLang == "tr" ? countryNames : countryNamesEN)
 
     useEffect(() => {
       setCountry(props.selectedCountry);
@@ -30,10 +35,12 @@ import countryNames from '../i18n/countrynames.json'
                 onChange={handleChange}
                 value={country}
               >
-              {Object.keys(countryNames).
-                sort((a,b) => countryNames[a].localeCompare(countryNames[b]))
+              
+              { 
+                Object.keys(selectedCountryNames).
+                sort((a,b) => selectedCountryNames[a].localeCompare(selectedCountryNames[b]))
                 .map((key,index) => 
-                <option value={key}>{countryNames[key]}</option>
+                <option value={key}>{selectedCountryNames[key]}</option>
                )}
               </FormControl>
             </FormGroup>

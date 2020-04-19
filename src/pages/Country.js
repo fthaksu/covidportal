@@ -35,6 +35,7 @@ const Country = (props) => {
   };
 
   useEffect(() => {
+    setLoading(true);
     setCountry(props.match.params.id);
   }, [props])
 
