@@ -146,6 +146,18 @@ const turkishMotnhFormatter = month => {
     case '09':
       monthname = ' Eyl';
       break;
+    case '10':
+      monthname = ' Eki';
+      break;
+    case '11':
+      monthname = ' Kas';
+      break;
+    case '12':
+      monthname = ' Ara';
+      break;
+    default:
+      monthname = ' Oca';
+      break;
   }
   return monthname;
 };

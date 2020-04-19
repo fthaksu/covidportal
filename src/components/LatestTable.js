@@ -3,19 +3,16 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import { FormattedMessage } from 'react-intl';
 import countryNames from '../i18n/countrynames.json';
-import { Spinner } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const LatestTable = () => {
   const [covidData, setCovidData] = useState([]); //this.state yerine state'ler bu şekilde tutuluyor.
-  const [loading, setLoading] = useState(true);
 
   async function getData() {
     const res = await axios('https://corona.lmao.ninja/v2/countries');
     const data = res.data;
     setCovidData(data);
-    setLoading(false);
   }
 
   useEffect(() => {
