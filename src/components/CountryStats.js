@@ -43,6 +43,9 @@ const CountryStats = (props) => {
     const calculateRate = (num, totalNum) => {
         var num1 = parseInt(num);
         var num2 = parseInt(totalNum);
+        if(num1 == 0 || num2 == 0){
+            return (<span>0</span>);
+        }
         var rate = (num1 / num2) * 100
         return (<span>%{rate.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>)
     }

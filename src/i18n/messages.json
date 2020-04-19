@@ -6,7 +6,7 @@
         "deaths" : "Deaths",
         "critical" : "Critical",
         "death_rate" : "Death Rate",
-        "recovery_rate" : "Recovery Rate",
+        "recovery_rate" : "Recovery",
         "total_test" : "Total Tests",
         "last_updated" : "Last updated time",
         "country" : "Country",
@@ -41,7 +41,9 @@
         "select_country" : "Select Country",
         "forecast_message1" : "Forward-looking data predictions will include at this page soon. For example; For such questions, prediction models will be added using various data analysis methods.",
         "forecast_message2" : ".",
-        "forecast_list": "<ul><li>What happens tomorrow in Turkey?</li><li>A week later, many people will be sick?</li><li>What will the pandemic be like after a month</li></ul> "
+        "forecast_list": "<ul><li>What happens tomorrow in Turkey?</li><li>A week later, many people will be sick?</li><li>What will the pandemic be like after a month</li></ul> ",
+        "phone_warning" : "Please rotate your device!",
+        "phone_warning_top" : "For a better view"
     },
     "tr": {
         "total_cases": "Toplam Vaka",
@@ -85,6 +87,9 @@
         "select_country" : "Ülke Seçimi",
         "forecast_message1" : "Çok yakında bu sayfada, ileriye dönük veri tahminleri yer alacak. Örneğin; ",
         "forecast_list" : "<ul><li>Yarın Türkiye'de durum ne olur?</li><li>Bir hafta sonra enfekte kişi sayısı kaç olacak?</li><li>Bir ay sonra salgın ne durumda olacak?</li></ul>",
-        "forecast_message2" : "gibi sorular için çeşitli sayısal veri analizi yöntemleri kullanılarak tahmin modelleri eklenecektir."
+        "forecast_message2" : "gibi sorular için çeşitli sayısal veri analizi yöntemleri kullanılarak tahmin modelleri eklenecektir.",
+        "phone_warning" : "Lütfen telefonunuzu döndürün!",
+        "phone_warning_top" : "Daha iyi bir görünüm için"
+
     }
 }

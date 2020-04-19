@@ -97,7 +97,7 @@ svg {
   float: right;
   height: 24px;
   width: 150px;
-  background: linear-gradient(to right, #ffddd8 0%, #bb0c0c 100%);
+  background: linear-gradient(to right, #ffcaba 0%, rgb(255, 0, 0) 100%);
 }
 
 .color-bar-map span {
@@ -260,5 +260,54 @@ text-decoration:none;
   .graph{
     width: 675px;
     margin-bottom: 30px;
+  }
+}
+
+
+.phone {
+  margin: 0 auto;
+  height: 50px;
+  width: 100px;
+  border: 3px solid black;
+  border-radius: 10px;
+  animation: rotate 1.5s ease-in-out infinite alternate;
+   display: none; 
+}
+
+.map-message {
+  color: black;
+  font-size: 1.5em;
+  margin-top: 10px;
+   display: none; 
+}
+
+.map-message2 {
+  color: gray;
+  font-size: 1.4em;
+  margin-top: 40px;
+   display: none; 
+}
+
+.phone-area{
+  margin: 0 auto;
+  padding-top: 60px;
+  text-align: center;
+}
+
+@keyframes rotate {
+  0% {
+		transform: rotate(0deg)
+	}
+	50% {
+		transform: rotate(-90deg)
+	}
+	100% {
+		transform: rotate(-90deg)
+	}
+}
+
+@media only screen and (max-device-width: 812px) and (orientation: portrait) {
+  .phone, .map-message, .map-message2 {
+    display: block;
   }
 }
