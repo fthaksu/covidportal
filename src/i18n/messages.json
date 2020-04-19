@@ -24,6 +24,7 @@
         "used_techs" : "Used Technologies & Sources",
         "data_service" : "API",
         "ui_library" : "UI Library",
+        "github_repo" : "Github Repo of Covidst.com Project",
         "soft_eng" : "Software Engineer",
         "nav_text" : "covid stats",
         "country-detail" : "Country Detail",
@@ -89,7 +90,9 @@
         "forecast_list" : "<ul><li>Yarın Türkiye'de durum ne olur?</li><li>Bir hafta sonra enfekte kişi sayısı kaç olacak?</li><li>Bir ay sonra salgın ne durumda olacak?</li></ul>",
         "forecast_message2" : "gibi sorular için çeşitli sayısal veri analizi yöntemleri kullanılarak tahmin modelleri eklenecektir.",
         "phone_warning" : "Lütfen telefonunuzu döndürün!",
-        "phone_warning_top" : "Daha iyi bir görünüm için"
+        "phone_warning_top" : "Daha iyi bir görünüm için",
+        "github_repo" : "Covidst.com Projesine ait Github Sayfası"
+
 
     }
 }

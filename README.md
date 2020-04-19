@@ -1,68 +1,61 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## CovidPortal - Covidst.com
+A project that shows live COVID19 datas on charts,maps and developed with React.
 
-In the project directory, you can run:
+## Getting Started
 
-### `yarn start`
+### `Get github repo`
+```sh
+$ git clone https://github.com/fthaksu/covidportal.git
+```
+### `npm install`
+
+Install the all using packages with npm.
+
+### `npm start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
+### `npm build`
 
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+## Features
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Shows total confirmed, recovered and death COVID-19 cases by country
+- Shows daily statistics for every country and world
+- Shows statistics in detail graphs for every country
+- Total data for COVID
+- Charts
+- Map
+- Supports Turkish and English languages (based on browser language)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Built With
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- [Node.js](https://nodejs.org/) - Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.
+- [React](https://reactjs.org/) - A JavaScript library for building user interfaces.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Contributing
 
-## Learn More
+### `All contributions are welcome!`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Fork the project
+2. Create your branch (`git checkout -b feature/featureName`)
+3. Commit your changes (`git commit -m 'Short details about the change'`)
+4. Push to the branch (`git push origin feature/featureName`)
+5. Open a pull request
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## License
 
-### Code Splitting
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Acknowledgments
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- This application uses the data provided by [Novel COVID API](https://github.com/NovelCovid/API) and [Covid19 API](https://covid19api.com/)
+- Turkey specific data provided by [Covid19 Turkey API](https://github.com/ozanerturk/covid19-turkey-api)
