@@ -10,7 +10,7 @@ const CountryStats = props => {
   const [loading, setLoading] = useState(true);
 
   async function getData() {
-    if (props.country == 'TR') {
+    if (props.country === 'TR') {
       let data = await getTurkeyStatsData();
       setStatsData(data);
       setLoading(false);
@@ -37,7 +37,7 @@ const CountryStats = props => {
   const calculateRate = (num, totalNum) => {
     var num1 = parseInt(num);
     var num2 = parseInt(totalNum);
-    if (num1 == 0 || num2 == 0) {
+    if (num1 === 0 || num2 === 0) {
       return <span>0</span>;
     }
     var rate = (num1 / num2) * 100;
@@ -48,17 +48,6 @@ const CountryStats = props => {
           minimumFractionDigits: 2,
           maximumFractionDigits: 2
         })}
-      </span>
-    );
-  };
-
-  const customToDate = val => {
-    var num = parseFloat(val);
-    var date = new Date(num);
-    return (
-      <span>
-        {' '}
-        {date.toLocaleDateString() + ' | ' + date.toLocaleTimeString()}{' '}
       </span>
     );
   };
@@ -82,7 +71,7 @@ const CountryStats = props => {
                   {numberFormatter(statsData.cases)}
                 </h3>
               )}
-              {props.country == 'TR' && !loading ? (
+              {props.country === 'TR' && !loading ? (
                 <p className='card-text font-italic'>
                   <FormattedMessage id='today' /> :{' '}
                   <span className='font-weight-bold'>
@@ -107,7 +96,7 @@ const CountryStats = props => {
                   {numberFormatter(statsData.deaths)}
                 </h3>
               )}
-              {props.country == 'TR' && !loading ? (
+              {props.country === 'TR' && !loading ? (
                 <p className='card-text font-italic'>
                   <FormattedMessage id='today' /> :{' '}
                   <span className='font-weight-bold'>
@@ -132,7 +121,7 @@ const CountryStats = props => {
                   {numberFormatter(statsData.critical)}
                 </h3>
               )}
-              {props.country == 'TR' && !loading ? (
+              {props.country === 'TR' && !loading ? (
                 <p className='card-text font-italic'>
                   <FormattedMessage id='today' /> :{' '}
                   <span className='font-weight-bold'>
@@ -157,7 +146,7 @@ const CountryStats = props => {
                   {numberFormatter(statsData.recovered)}
                 </h3>
               )}
-              {props.country == 'TR' && !loading ? (
+              {props.country === 'TR' && !loading ? (
                 <p className='card-text font-italic'>
                   <FormattedMessage id='today' /> :{' '}
                   <span className='font-weight-bold'>
@@ -185,7 +174,7 @@ const CountryStats = props => {
                   {numberFormatter(statsData.tests)}
                 </h3>
               )}
-              {props.country == 'TR' && !loading ? (
+              {props.country === 'TR' && !loading ? (
                 <p className='card-text font-italic'>
                   <FormattedMessage id='today' /> :{' '}
                   <span className='font-weight-bold'>
@@ -210,7 +199,7 @@ const CountryStats = props => {
                   {calculateRate(statsData.cases, statsData.tests)}
                 </h3>
               )}
-              {props.country == 'TR' && !loading ? (
+              {props.country === 'TR' && !loading ? (
                 <p className='card-text font-italic'>
                   <FormattedMessage id='today' /> :{' '}
                   <span className='font-weight-bold'>

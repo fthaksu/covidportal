@@ -70,7 +70,7 @@ const Country = props => {
             <CountryCard selectedCountry={country} handler={updateCountry} />
           </div>
           <Row>
-            {statsCountry != '' ? (
+            {statsCountry !== '' ? (
               <CountryStats country={statsCountry} />
             ) : (
               'Loading'
@@ -126,7 +126,7 @@ const Country = props => {
                   )}{' '}
                 </h4>
                 <Graph
-                  weekData={country == 'TR' ? graphData : logarithmicData}
+                  weekData={country === 'TR' ? graphData : logarithmicData}
                   XAxisDatakey={'Date'}
                   AreaDataKey={'dailyConfirmed'}
                   fill={'#8A80D7'}
@@ -197,7 +197,7 @@ const Country = props => {
           </Row>
           <br />
           <br />
-          {country == 'TR' ? (
+          {country === 'TR' ? (
             <Row>
               <Col>
                 <div className='graph'>
@@ -261,7 +261,7 @@ const Country = props => {
           )}
           <br />
           <br />
-          {country == 'TR' ? (
+          {country === 'TR' ? (
             <Row>
               <Col>
                 <div className='graph'>

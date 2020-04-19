@@ -118,7 +118,7 @@ const MapChart = ({ setTooltipContent }) => {
                         onMouseEnter={() => {
                           const { NAME } = geo.properties;
                           setTooltipContent(
-                            d == undefined ? (
+                            d === undefined ? (
                               ''
                             ) : (
                               <div>

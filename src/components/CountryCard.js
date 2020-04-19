@@ -14,8 +14,8 @@ const CountryCard = props => {
   const [country, setCountry] = useState(props.selectedCountry);
 
   let language = navigator.language.split(/[-_]/)[0];
-  const navLang = language == 'tr' ? language : 'en';
-  let selectedCountryNames = navLang == 'tr' ? countryNames : countryNamesEN;
+  const navLang = language === 'tr' ? language : 'en';
+  let selectedCountryNames = navLang === 'tr' ? countryNames : countryNamesEN;
 
   useEffect(() => {
     setCountry(props.selectedCountry);
