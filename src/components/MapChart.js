@@ -52,7 +52,7 @@ const MapChart = ({ setTooltipContent }) => {
     }
     return (
         <>
-            <Row>
+            <Row className="map-first-row">
                 <Col>
                     <div className="controls">
                         <button onClick={handleZoomIn}>
@@ -88,7 +88,7 @@ const MapChart = ({ setTooltipContent }) => {
                     </div>
                 </Col>
             </Row>
-            <div>
+            <div className="map-sec-row">
                 <ComposableMap data-tip="" projectionConfig={{ scale: 200 }} width={1100}>
                     <ZoomableGroup zoom={position.zoom}
                         center={position.coordinates}

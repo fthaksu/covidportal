@@ -311,3 +311,12 @@ text-decoration:none;
     display: block;
   }
 }
+
+@media only screen and (max-device-width: 812px) and (orientation: landscape) {
+  .map-first-row {
+    display: none;
+  }
+  .map-sec-row{
+    margin-top: -50px;
+  }
+}
