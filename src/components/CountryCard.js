@@ -35,12 +35,11 @@ import countryNamesEN from '../i18n/countrynamesEN.json'
                 onChange={handleChange}
                 value={country}
               >
-              
               { 
                 Object.keys(selectedCountryNames).
                 sort((a,b) => selectedCountryNames[a].localeCompare(selectedCountryNames[b]))
                 .map((key,index) => 
-                <option value={key}>{selectedCountryNames[key]}</option>
+                <option key={index} value={key}>{selectedCountryNames[key]}</option>
                )}
               </FormControl>
             </FormGroup>

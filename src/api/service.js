@@ -70,15 +70,24 @@ const getTurkeyStatsData = async () => {
 
 
 const getWorldData = async (country) => {
+    let usRecoveryArr;
     const result = await axios(`https://api.covid19api.com/total/dayone/country/${country}`);
+
+    if (country == "US") { //US does not share recovery data to JH, the data is getting available source
+        let usResult = await axios('https://corona.lmao.ninja/v2/historical/US?lastdays=100');
+        let usResultData = usResult.data;
+        usRecoveryArr = Object.values(usResultData.timeline.recovered);
+    }
+
     let worldData = result.data;
-    worldData = worldData.map((item) => {
-        if(country == "US"){
-            item.Recovered = 67158;
+    worldData = worldData.map((item, index, arr) => {
+        if (country == "US" && usRecoveryArr) {
+            item.Recovered = usRecoveryArr[index + 1];
         }
         item.Date = moment(item.Date).format("MMM Do");
         item.caseDeathRate = calculateRate(Number.parseInt(item.Deaths), Number.parseInt(item.Confirmed));
         item.recoveryRate = calculateRate(Number.parseInt(item.Recovered), Number.parseInt(item.Confirmed));
+
         return item;
     });
     return worldData;
