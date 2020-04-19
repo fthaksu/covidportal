@@ -13,7 +13,7 @@ const Navigationbar = () => {
       sticky='top'
     >
       <Container>
-        <img src={logo} width='45px' height='45x' />
+        <img src={logo} alt='logo' width='45px' height='45x' />
         <Link to='/' className='navbar-brand'>
           <span>&nbsp;</span>Covidst.com{' '}
           <small className='text-muted'>

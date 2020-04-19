@@ -97,7 +97,7 @@ const About = () => {
               />
             </div>
             <div class='profile-thumb-block'>
-              <img src={pp} alt='profile-image' class='profile' />
+              <img src={pp} alt='profile' class='profile' />
             </div>
             <div class='card-content'>
               <h2>
