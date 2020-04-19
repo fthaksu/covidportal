@@ -84,6 +84,10 @@ const getTurkeyStatsData = async () => {
 };
 
 const getWorldData = async country => {
+  if (!country) {
+    return [];
+  }
+
   const result = await axios(
     `https://api.covid19api.com/total/dayone/country/${country}`
   );
