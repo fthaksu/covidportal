@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent } from 'react';
 import {
   AreaChart,
   Area,
@@ -6,9 +6,8 @@ import {
   YAxis,
   CartesianGrid,
   ResponsiveContainer,
-  Tooltip,
-  Legend,
-} from "recharts";
+  Tooltip
+} from 'recharts';
 
 export default class Graph extends PureComponent {
   render() {
@@ -21,20 +20,20 @@ export default class Graph extends PureComponent {
               top: 10,
               right: 30,
               left: 0,
-              bottom: 0,
+              bottom: 0
             }}
           >
-            <CartesianGrid strokeDasharray="3 3" />
+            <CartesianGrid strokeDasharray='3 3' />
             <XAxis dataKey={this.props.XAxisDatakey} />
             <YAxis />
             <Tooltip />
-            
 
-            <Area name={this.props.name}
+            <Area
+              name={this.props.name}
               strokeWidth={2}
-              type="monotone"
+              type='monotone'
               dataKey={this.props.AreaDataKey}
-              stroke="#2768e9"
+              stroke='#2768e9'
               fill={this.props.fill}
             />
           </AreaChart>
