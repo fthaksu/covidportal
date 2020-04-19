@@ -145,7 +145,7 @@ const LatestTable = () => {
         hover
         condensed
         bootstrap4
-        keyField='id'
+        keyField='country'
         data={covidData}
         columns={columns}
         defaultSorted={defaultSorted}
