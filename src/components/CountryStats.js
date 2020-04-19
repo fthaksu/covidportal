@@ -4,7 +4,7 @@ import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import { Alert, Spinner, Row } from "react-bootstrap";
 import { FormattedMessage } from "react-intl";
 import {getTurkeyStatsData} from "../api/service"
-
+import axios from "axios";
 
 
 
@@ -21,8 +21,8 @@ const CountryStats = (props) => {
             setLoading(false);
         }else 
         {
-        const res = await fetch(`https://corona.lmao.ninja/v2/countries/${props.country}`);
-        const data = await res.json();
+        const res = await axios(`https://corona.lmao.ninja/v2/countries/${props.country}`);
+        const data = res.data;
         setStatsData(data);
         setLoading(false);
         }

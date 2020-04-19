@@ -11,6 +11,7 @@ import {
 } from "react-simple-maps";
 import { FormattedMessage } from "react-intl";
 import { Row, Col } from "react-bootstrap";
+import Axios from "axios";
 
 const geoUrl =
     "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
@@ -26,8 +27,8 @@ const MapChart = ({ setTooltipContent }) => {
     const [covidData, setCovidData] = useState([]);
 
     async function getData() {
-        const res = await fetch('https://corona.lmao.ninja/v2/countries');
-        const data = await res.json();
+        const res = await Axios('https://corona.lmao.ninja/v2/countries');
+        const data = res.data;
         setCovidData(data);
     }
 

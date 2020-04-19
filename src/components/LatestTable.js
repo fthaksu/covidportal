@@ -5,7 +5,7 @@ import { FormattedMessage } from "react-intl";
 import countryNames from "../i18n/countrynames.json"
 import {Spinner } from "react-bootstrap";
 import { Link } from 'react-router-dom';
-
+import axios from "axios";
 
 
 
@@ -15,8 +15,8 @@ const LatestTable = () => {
 
 
   async function getData() {
-    const res = await fetch('https://corona.lmao.ninja/v2/countries');
-    const data = await res.json();
+    const res = await axios('https://corona.lmao.ninja/v2/countries');
+    const data = res.data;
     setCovidData(data);
     setLoading(false);
   }
