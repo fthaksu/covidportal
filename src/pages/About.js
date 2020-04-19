@@ -26,18 +26,30 @@ const About = () => {
         </h4>
         <ul>
           <li>
-            <a href='https://tr.reactjs.org' target='_blank'>
+            <a
+              href='https://tr.reactjs.org'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
               ReactJS
             </a>
           </li>
           <li>
-            <a href='https://github.com/NovelCOVID/API' target='_blank'>
+            <a
+              href='https://github.com/NovelCOVID/API'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
               Covel Novid API
             </a>{' '}
             - <FormattedMessage id='data_service' />
           </li>
           <li>
-            <a href='https://react-bootstrap.github.io' target='_blank'>
+            <a
+              href='https://react-bootstrap.github.io'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
               React Bootstrap
             </a>{' '}
             - <FormattedMessage id='ui_library' />
@@ -46,19 +58,28 @@ const About = () => {
             <a
               href='https://github.com/react-bootstrap-table/react-bootstrap-table2'
               target='_blank'
+              rel='noopener noreferrer'
             >
               Bootstrap Table
             </a>{' '}
             - <FormattedMessage id='ui_library' />
           </li>
           <li>
-            <a href='https://www.react-simple-maps.io' target='_blank'>
+            <a
+              href='https://www.react-simple-maps.io'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
               React Simple Maps
             </a>{' '}
             - <FormattedMessage id='ui_library' />
           </li>
           <li>
-            <a href='https://github.com/fthaksu/covidportal' target='_blank'>
+            <a
+              href='https://github.com/fthaksu/covidportal'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
               Covidst.com Github
             </a>{' '}
             - <FormattedMessage id='github_repo' />
