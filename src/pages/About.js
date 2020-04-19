@@ -30,7 +30,7 @@ const About = () => {
             <li><a href="https://react-bootstrap.github.io" target="_blank">React Bootstrap</a> - <FormattedMessage id="ui_library"/></li>
             <li><a href="https://github.com/react-bootstrap-table/react-bootstrap-table2" target="_blank">Bootstrap Table</a> - <FormattedMessage id="ui_library"/></li>
             <li><a href="https://www.react-simple-maps.io" target="_blank">React Simple Maps</a> - <FormattedMessage id="ui_library"/></li>
-            <li><a href="https://www.react-simple-maps.io" target="_blank">Covidst.com Github</a> - <FormattedMessage id="github_repo"/></li>
+            <li><a href="https://github.com/fthaksu/covidportal" target="_blank">Covidst.com Github</a> - <FormattedMessage id="github_repo"/></li>
           </ul>
           <br/>
 
