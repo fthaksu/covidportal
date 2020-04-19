@@ -89,7 +89,7 @@ const getWorldData = async country => {
   );
   let worldData = result.data;
   worldData = worldData.map(item => {
-    if (country == 'US') {
+    if (country === 'US') {
       item.Recovered = 67158;
     }
     item.Date = moment(item.Date).format('MMM Do');
@@ -107,7 +107,7 @@ const getWorldData = async country => {
 };
 
 const calculateRate = (num, totalNum) => {
-  if (totalNum == 0) {
+  if (totalNum === 0) {
     return 0;
   }
   var num1 = parseInt(num);
