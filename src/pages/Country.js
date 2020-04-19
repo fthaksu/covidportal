@@ -15,6 +15,7 @@ const Country = (props) => {
   const [country, setCountry] = useState("");
   const [logarithmicData, setLogarithmicData] = useState({});
   const [loading, setLoading] = useState(true);
+  const [statsCountry, setStatsCountry] = useState("");
 
   const intl = useIntl();
 
@@ -35,12 +36,15 @@ const Country = (props) => {
   };
 
   useEffect(() => {
+    //URL ile gelen parametre (props.match.params.id) değişir ise tetiklenecek.
     setLoading(true);
-    setCountry(props.match.params.id);
-  }, [props])
+    setCountry(props.match.params.id); //hem country değişkenini kullanan componentlerin
+    setStatsCountry(props.match.params.id); //hem de statsCountry değişkenini kullanan CountryStats componentinin tetiklenmesi için.
+  }, [props.match.params.id])
+
 
   useEffect(() => {
-    setLoading(true);
+    setLoading(true); //country'i kullanan yerlerin tetiklenmesi için
     getData();
   }, [country]);
 
@@ -48,6 +52,7 @@ const Country = (props) => {
   function updateCountry(updatedCountry) {
     setLoading(true);
     setCountry(updatedCountry);
+    setStatsCountry(updatedCountry); //statsCountry'i update etmez isek CountryStats tetiklenmiyor.
   }
 
   function storeDataInDatabase(data) {
@@ -69,7 +74,7 @@ const Country = (props) => {
         <CountryCard selectedCountry={country} handler={updateCountry} />
         </div>
           <Row>
-           <CountryStats country={country}/>
+           {statsCountry != "" ? <CountryStats country={statsCountry}/> : "Loading"} {/*kontrol yapılmaz ise en başta boş gidip hataya sebep olabiliyor.*/}
           </Row>
           <Row>
             <Col>

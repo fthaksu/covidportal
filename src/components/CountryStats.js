@@ -30,14 +30,12 @@ const CountryStats = (props) => {
     }
 
     useEffect(() => {
+        console.log("props effects")
+        console.log(props)
         setLoading(true);
         getData();
-    }, [props]); //props değişince useEffect tetiklenir.
+    }, [props.country]); //props değişince useEffect tetiklenir. props.country diye belirtmez isek farklı props lar değiştiğinde de tetiklenir!
 
-    useEffect(() => {
-        setLoading(true);
-        getData();
-    }, []); //props değişince useEffect tetiklenir.
 
 
     const numberFormatter = val => {
