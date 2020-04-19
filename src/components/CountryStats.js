@@ -34,6 +34,11 @@ const CountryStats = (props) => {
         getData();
     }, [props]); //props değişince useEffect tetiklenir.
 
+    useEffect(() => {
+        setLoading(true);
+        getData();
+    }, []); //props değişince useEffect tetiklenir.
+
 
     const numberFormatter = val => {
         var number = parseInt(val);
