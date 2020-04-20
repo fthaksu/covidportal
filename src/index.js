@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { IntlProvider } from 'react-intl';
+import { IntlProvider } from "react-intl";
 import messages from './i18n/messages.json';
 
-const language = navigator.language.split(/[-_]/)[0]; // language without region code
-const navLang = language === 'tr' ? language : 'en';
+const language = navigator.language.split(/[-_]/)[0];  // language without region code
+const navLang =  (language == 'tr') ? language : 'en' ; 
 
 ReactDOM.render(
   <React.StrictMode>
