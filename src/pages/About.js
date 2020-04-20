@@ -1,4 +1,4 @@
-import React, { useState, useEffect, memo} from 'react';
+import React, { memo} from 'react';
 import Layouts from '../components/Layouts';
 import pp from '../images/profile.png';
 import { faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
@@ -25,12 +25,12 @@ const About = () => {
           <br></br>
           <h4><FormattedMessage id="used_techs"/></h4>
           <ul>
-            <li><a href="https://tr.reactjs.org" target="_blank">ReactJS</a></li>
-            <li><a href="https://github.com/NovelCOVID/API" target="_blank">Covel Novid API</a> - <FormattedMessage id="data_service"/></li>
-            <li><a href="https://react-bootstrap.github.io" target="_blank">React Bootstrap</a> - <FormattedMessage id="ui_library"/></li>
-            <li><a href="https://github.com/react-bootstrap-table/react-bootstrap-table2" target="_blank">Bootstrap Table</a> - <FormattedMessage id="ui_library"/></li>
-            <li><a href="https://www.react-simple-maps.io" target="_blank">React Simple Maps</a> - <FormattedMessage id="ui_library"/></li>
-            <li><a href="https://github.com/fthaksu/covidportal" target="_blank">Covidst.com Github</a> - <FormattedMessage id="github_repo"/></li>
+            <li><a href="https://tr.reactjs.org" target="_blank" rel="noopener noreferrer">ReactJS</a></li>
+            <li><a href="https://github.com/NovelCOVID/API" target="_blank" rel="noopener noreferrer">Covel Novid API</a> - <FormattedMessage id="data_service"/></li>
+            <li><a href="https://react-bootstrap.github.io" target="_blank" rel="noopener noreferrer">React Bootstrap</a> - <FormattedMessage id="ui_library"/></li>
+            <li><a href="https://github.com/react-bootstrap-table/react-bootstrap-table2" target="_blank" rel="noopener noreferrer">Bootstrap Table</a> - <FormattedMessage id="ui_library"/></li>
+            <li><a href="https://www.react-simple-maps.io" target="_blank" rel="noopener noreferrer">React Simple Maps</a> - <FormattedMessage id="ui_library"/></li>
+            <li><a href="https://github.com/fthaksu/covidportal" target="_blank" rel="noopener noreferrer">Covidst.com Github</a> - <FormattedMessage id="github_repo"/></li>
           </ul>
           <br/>
 
@@ -40,7 +40,7 @@ const About = () => {
     		            <img src="https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="profile-sample1" class="background"/>
     		        </div>
     		        <div class="profile-thumb-block">
-    		            <img src={pp} alt="profile-image" class="profile"/>
+    		            <img src={pp} alt="profile" class="profile"/>
     		        </div>
     		        <div class="card-content">
                     <h2>Muhammed Fatih Aksu<small> <FormattedMessage id="soft_eng"/></small></h2>
@@ -51,7 +51,6 @@ const About = () => {
                     </div>
                 </div>
     		</div>
-        { /*<h6><FormattedMessage id="ask_questions"/><a href="mailto:fatihaksu42@gmail.com"><FormattedMessage id="click"/></a></h6> */}
         </div>
       </Layouts>
     );

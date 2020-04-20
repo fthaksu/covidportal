@@ -1,4 +1,4 @@
-import React, { useState, useEffect, memo} from 'react'
+import React, { useState,  memo} from 'react'
 import Layouts from '../components/Layouts';
 import MapChart from '../components/MapChart';
 import ReactTooltip from "react-tooltip";

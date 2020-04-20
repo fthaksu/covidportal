@@ -1,6 +1,4 @@
-import React, { Component, useState, useEffect, memo } from 'react'
-import { Alert } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react'
 import LatestTable from '../components/LatestTable'
 import Layouts from '../components/Layouts';
 import Stats from '../components/Stats';

@@ -10,8 +10,8 @@ import countryNamesEN from '../i18n/countrynamesEN.json'
     const [country, setCountry] = useState(props.selectedCountry);
 
     let language = navigator.language.split(/[-_]/)[0]; 
-    const navLang =  (language == 'tr') ? language : 'en' ; 
-    let selectedCountryNames = (navLang == "tr" ? countryNames : countryNamesEN)
+    const navLang =  (language === 'tr') ? language : 'en' ; 
+    let selectedCountryNames = (navLang === "tr" ? countryNames : countryNamesEN)
 
     useEffect(() => {
       setCountry(props.selectedCountry);
@@ -28,7 +28,7 @@ import countryNamesEN from '../i18n/countrynamesEN.json'
           <Form>
             <FormGroup>
               <FormLabel><FormattedMessage id="select_country" /></FormLabel>
-              <FormControl
+              <FormControl className="mobile-selector"
                 as='select'
                 name='country'
                 placeholder='Select..'
@@ -36,9 +36,7 @@ import countryNamesEN from '../i18n/countrynamesEN.json'
                 value={country}
               >
               { 
-                Object.keys(selectedCountryNames).
-                sort((a,b) => selectedCountryNames[a].localeCompare(selectedCountryNames[b]))
-                .map((key,index) => 
+                Object.keys(selectedCountryNames).sort((a,b) => selectedCountryNames[a].localeCompare(selectedCountryNames[b])).map((key,index) => 
                 <option key={index} value={key}>{selectedCountryNames[key]}</option>
                )}
               </FormControl>

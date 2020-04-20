@@ -3,40 +3,32 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import { FormattedMessage } from "react-intl";
 import countryNames from "../i18n/countrynames.json"
-import {Spinner } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 import axios from "axios";
 
 
 
 const LatestTable = () => {
-  const [covidData, setCovidData] = useState([]); //this.state yerine state'ler bu şekilde tutuluyor.
-  const [loading, setLoading] = useState(true)
+  const [covidData, setCovidData] = useState([]); //this.state 
 
 
   async function getData() {
     const res = await axios('https://corona.lmao.ninja/v2/countries');
     const data = res.data;
     setCovidData(data);
-    setLoading(false);
   }
 
-  useEffect(() => { //componentDidMount yerine kullanılıyor. PageLoad gibi.
+  useEffect(() => { //componentDidMount, componentDidUpdate etc..
     getData();
   }, []);
 
-  // function showDescription(cell, row) {
-  //   return cell.confirmed;
-  // }
-
-  // const showDeaths = cell => {return cell.deaths};
 
   const numberFormatter = cell => {return(<span> <strong>{ cell.toLocaleString()}</strong></span>)};
   const countryFormatter = cell  => {
     const language = navigator.language.split(/[-_]/)[0];  
     const iso2 = covidData.filter(item => item.country === cell).map(post => post.countryInfo.iso2) //filter map örneği
     return(
-    <span><Link to={{ pathname: "/country/"+iso2[0] }}>{(language === 'tr') ? (countryNames[iso2] == '' ? {cell} : countryNames[iso2]) : cell }</Link></span>
+    <span><Link to={{ pathname: "/country/"+iso2[0] }}>{(language === 'tr') ? (countryNames[iso2] === '' ? {cell} : countryNames[iso2]) : cell }</Link></span>
     )
   };
 
@@ -116,7 +108,7 @@ const LatestTable = () => {
     <div className='anyClass'>
     <BootstrapTable striped hover condensed 
      bootstrap4
-     keyField='id' 
+     keyField='country' 
      data={covidData} 
      columns={columns}
      defaultSorted={defaultSorted}

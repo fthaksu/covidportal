@@ -1,6 +1,3 @@
-import React, { memo, useState, useEffect } from 'react'
-import { FormattedMessage } from "react-intl";
-import countryNames from '../i18n/countrynames.json'
 import axios from "axios";
 import moment from "moment";
 
@@ -37,43 +34,48 @@ const getTurkeyStatsData = async () => {
     const result = await axios(`https://raw.githubusercontent.com/ozanerturk/covid19-turkey-api/master/dataset/timeline.json`);
     let turkeyData = result.data;
     let yesterDayCritical = 0;
-    let tasks = Object.values(turkeyData); //aldığımız data JSONObject, JSONarray değil. O yüzden Object.values kullanmak gerekiyor.
+    let tasks = Object.values(turkeyData); //JSONObject to JSONArray. Object.values -> get an object values.
     tasks = tasks.map((item, index, arr) => {
         var res = item.date.split("/");
-        index > 0 ? yesterDayCritical = arr[index-1].totalIntensiveCare : yesterDayCritical = 0 ;
+        index > 0 ? yesterDayCritical = arr[index - 1].totalIntensiveCare : yesterDayCritical = 0;
         item.date = res[1] + "-" + res[0] + "-" + res[2];
         //item.Date = moment(item.date).format("MMM Do");
         item.Date = (res[0] + turkishMotnhFormatter(res[1]));
 
-         //veri çekilen yerde bu değerler string olarak tanımlı, convert etmek gerekiyor!.
-         item.testCaseRate = calculateRate(Number.parseInt(item.cases), Number.parseInt(item.tests));
-         item.todayRecovered =  Number.parseInt(item.recovered);
-         item.todayDeaths = Number.parseInt(item.deaths);
-         item.todayCases =  Number.parseInt(item.cases);
-         item.todayTests = Number.parseInt(item.tests);
-         item.todayCritical = Number.parseInt(item.totalIntensiveCare - yesterDayCritical);
-         item.cases = Number.parseInt(item.totalCases);
-         item.recovered = Number.parseInt(item.totalRecovered);
-         item.deaths = Number.parseInt(item.totalDeaths);
-         item.dailyConfirmed = Number.parseInt(item.cases);
-         item.tests = Number.parseInt(item.totalTests);
-         item.caseDeathRate = calculateRate(Number.parseInt(item.totalDeaths), Number.parseInt(item.totalCases));
-         item.totalIntubated = Number.parseInt(item.totalIntubated);
-         item.critical = Number.parseInt(item.totalIntensiveCare);
+        //Datas all are string, must convert numbers
+        item.testCaseRate = calculateRate(Number.parseInt(item.cases), Number.parseInt(item.tests));
+        item.todayRecovered = Number.parseInt(item.recovered);
+        item.todayDeaths = Number.parseInt(item.deaths);
+        item.todayCases = Number.parseInt(item.cases);
+        item.todayTests = Number.parseInt(item.tests);
+        item.todayCritical = Number.parseInt(item.totalIntensiveCare - yesterDayCritical);
+        item.cases = Number.parseInt(item.totalCases);
+        item.recovered = Number.parseInt(item.totalRecovered);
+        item.deaths = Number.parseInt(item.totalDeaths);
+        item.dailyConfirmed = Number.parseInt(item.cases);
+        item.tests = Number.parseInt(item.totalTests);
+        item.caseDeathRate = calculateRate(Number.parseInt(item.totalDeaths), Number.parseInt(item.totalCases));
+        item.totalIntubated = Number.parseInt(item.totalIntubated);
+        item.critical = Number.parseInt(item.totalIntensiveCare);
 
 
         return item;
     });
 
-    return tasks[tasks.length-1];
+    return tasks[tasks.length - 1];
 };
 
 
 const getWorldData = async (country) => {
     let usRecoveryArr;
+
+    if (!country) {
+        return [];
+    }
+
     const result = await axios(`https://api.covid19api.com/total/dayone/country/${country}`);
 
-    if (country == "US") { //US does not share recovery data to JH, the data is getting available source
+    if (country ===  "US") { //US does not share recovery data to JH, the data is getting available source
         let usResult = await axios('https://corona.lmao.ninja/v2/historical/US?lastdays=100');
         let usResultData = usResult.data;
         usRecoveryArr = Object.values(usResultData.timeline.recovered);
@@ -81,7 +83,7 @@ const getWorldData = async (country) => {
 
     let worldData = result.data;
     worldData = worldData.map((item, index, arr) => {
-        if (country == "US" && usRecoveryArr) {
+        if (country ===  "US" && usRecoveryArr) {
             item.Recovered = usRecoveryArr[index + 1];
         }
         item.Date = moment(item.Date).format("MMM Do");
@@ -95,7 +97,7 @@ const getWorldData = async (country) => {
 
 
 const calculateRate = (num, totalNum) => {
-    if (totalNum == 0) {
+    if (totalNum ===  0) {
         return 0;
     }
     var num1 = parseInt(num);
@@ -133,6 +135,18 @@ const turkishMotnhFormatter = (month) => {
             break;
         case "09":
             monthname = " Eyl";
+            break;
+        case '10':
+            monthname = ' Eki';
+            break;
+        case '11':
+            monthname = ' Kas';
+            break;
+        case '12':
+            monthname = ' Ara';
+            break;
+        default:
+            monthname = ' Oca';
             break;
     }
     return monthname;

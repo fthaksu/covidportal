@@ -2,15 +2,12 @@ import React, { useState, useEffect, memo } from "react";
 import Graph from "../components/Graph";
 import CountryCard from "../components/CountryCard";
 import CountryStats from "../components/CountryStats"
-import axios from "axios";
-import moment from "moment";
 import { Container, Row, Col, Button, Spinner } from "react-bootstrap";
 import {useIntl,FormattedMessage } from "react-intl";
 import Layouts from "../components/Layouts";
 import {getTurkeyData,getWorldData} from "../api/service"
 
 const Country = (props) => {
-  const [todayData, setTodayData] = useState({});
   const [graphData, setGraphData] = useState({});
   const [country, setCountry] = useState("");
   const [logarithmicData, setLogarithmicData] = useState({});
@@ -74,7 +71,7 @@ const Country = (props) => {
         <CountryCard selectedCountry={country} handler={updateCountry} />
         </div>
           <Row>
-           {statsCountry != "" ? <CountryStats country={statsCountry}/> : "Loading"} {/*kontrol yapılmaz ise en başta boş gidip hataya sebep olabiliyor.*/}
+           {statsCountry !== "" ? <CountryStats country={statsCountry}/> : "Loading"} {/*kontrol yapılmaz ise en başta boş gidip hataya sebep olabiliyor.*/}
           </Row>
           <Row>
             <Col>
@@ -93,7 +90,7 @@ const Country = (props) => {
               <div className="graph">
                 <h4><FormattedMessage id="logarithmic_cases"/> {!loading ? '' : (<Button variant="primary" disabled><Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" /> <FormattedMessage id="loading" /> </Button>)} </h4>
                 <Graph
-                  weekData={country == "TR" ? graphData : logarithmicData}
+                  weekData={country === "TR" ? graphData : logarithmicData}
                   XAxisDatakey={"Date"}
                   AreaDataKey={"dailyConfirmed"}
                   fill={"#8A80D7"}
@@ -134,7 +131,7 @@ const Country = (props) => {
           </Row>
           <br />
           <br />
-          {country == "TR" ? (
+          {country === "TR" ? (
           <Row>
             <Col>
               <div className="graph">
@@ -165,7 +162,7 @@ const Country = (props) => {
            ) : ""}
            <br />
           <br />
-          {country == "TR" ? (
+          {country === "TR" ? (
           <Row>
             <Col>
               <div className="graph">

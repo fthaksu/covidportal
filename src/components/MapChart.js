@@ -1,6 +1,5 @@
 import React, { memo, useEffect, useState } from "react";
 import { scaleLinear } from "d3-scale";
-import { csv } from "d3-fetch";
 import {
     ZoomableGroup,
     ComposableMap,
@@ -106,8 +105,8 @@ const MapChart = ({ setTooltipContent }) => {
                                                 geography={geo}
                                                 fill={d ? colorScale(d["cases"]) : "#F5F4F6"}
                                                 onMouseEnter={() => {
-                                                    const { NAME, POP_EST } = geo.properties;
-                                                    setTooltipContent((d == undefined ? '' : (<div>
+                                                    const { NAME } = geo.properties;
+                                                    setTooltipContent((d === undefined ? '' : (<div>
                                                         <strong>{NAME}</strong><br />
                                                         <FormattedMessage id="total_cases" />: {d["cases"].toLocaleString()} <br />
                                                         <FormattedMessage id="deaths" /> : {d["deaths"].toLocaleString()}<br />

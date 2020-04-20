@@ -1,5 +1,4 @@
 import React, { useState, useEffect, memo } from 'react'
-import BootstrapTable from 'react-bootstrap-table-next';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import { Alert, Spinner } from "react-bootstrap";
 import { FormattedMessage } from "react-intl";
@@ -9,7 +8,6 @@ import { FormattedMessage } from "react-intl";
 
 const Stats = () => {
     const [statsData, setStatsData] = useState([]);
-    const [locale, setLocale] = useState("en");
     const [loading, setLoading] = useState(true)
 
 

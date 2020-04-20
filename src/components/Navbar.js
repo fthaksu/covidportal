@@ -1,16 +1,14 @@
-import React, { memo } from "react";
-import { Link } from "react-router-dom";
-import { Container, Navbar, Nav } from "react-bootstrap";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faChartLine } from '@fortawesome/free-solid-svg-icons'
-import { FormattedMessage } from "react-intl";
-import logo from '../images/logo.png'
+import React, { memo } from 'react';
+import { Link } from 'react-router-dom';
+import { Container, Navbar, Nav } from 'react-bootstrap';
+import { FormattedMessage } from 'react-intl';
+import logo from '../images/logo.png';
 
 const Navigationbar = () => {
   return (
     <Navbar className="navbar-expand-xl py-1" variant="dark" expand="lg" sticky="top">
       <Container>
-      <img src={logo} width="45px" height="45x"/>
+      <img src={logo} alt='logo' width="45px" height="45x"/>
         <Link to="/" className="navbar-brand">
         <span>&nbsp;</span>Covidst.com <small className="text-muted"> / <FormattedMessage id="nav_text"></FormattedMessage></small>
         </Link>

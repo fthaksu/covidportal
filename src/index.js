@@ -6,7 +6,7 @@ import { IntlProvider } from "react-intl";
 import messages from './i18n/messages.json';
 
 const language = navigator.language.split(/[-_]/)[0];  // language without region code
-const navLang =  (language == 'tr') ? language : 'en' ; 
+const navLang =  (language === 'tr') ? language : 'en' ; 
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,9 +1,5 @@
-import React, { useState, useEffect, memo } from 'react';
+import React, {  memo } from 'react';
 import Layouts from '../components/Layouts';
-import pp from '../images/profile.png';
-import { faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FormattedMessage } from "react-intl";
 
 
