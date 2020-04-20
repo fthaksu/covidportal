@@ -1,6 +1,6 @@
-import React, { useEffect, memo } from 'react';
-import Navbar from './Navbar';
-import Footer from './Footer';
+import React, { useEffect, memo } from "react";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const Layout = ({ children }) => {
   useEffect(() => {
@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Navbar />
-      <main className='container my-3 min-vh-100'>{children}</main>
+      <main className="container my-3 min-vh-100">{children}</main>
       <Footer />
     </>
   );
