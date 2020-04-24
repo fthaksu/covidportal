@@ -4,6 +4,7 @@ import { Spinner, Row } from "react-bootstrap";
 import { FormattedMessage } from "react-intl";
 import { getTurkeyStatsData } from "../api/service"
 import axios from "axios";
+import { getTurkeyData, getWorldData } from "../api/service" 
 
 
 
@@ -61,7 +62,7 @@ const CountryStats = (props) => {
                         <div className="card-body">
                             {loading ? (<Spinner animation="border" />) :
                                 <h3 className="card-title"> {numberFormatter(statsData.cases)}</h3>}
-                            {(props.country === "TR" && !loading) ? <p className="card-text font-italic"><FormattedMessage id="today" /> :
+                            {(!loading) ? <p className="card-text font-italic"><FormattedMessage id="today" /> :
                             <span className="font-weight-bold">{numberFormatter(statsData.todayCases)}</span> </p> : ""}
                         </div>
                     </div>
@@ -70,7 +71,7 @@ const CountryStats = (props) => {
                         <div className="card-body">
                             {loading ? (<Spinner animation="border" />) :
                                 <h3 className="card-title"> {numberFormatter(statsData.deaths)}</h3>}
-                            {(props.country === "TR" && !loading) ? <p className="card-text font-italic"><FormattedMessage id="today" /> :
+                            {(!loading) ? <p className="card-text font-italic"><FormattedMessage id="today" /> :
                             <span className="font-weight-bold">{numberFormatter(statsData.todayDeaths)}</span> </p> : ""}
                         </div>
                     </div>
