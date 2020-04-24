@@ -50,10 +50,10 @@ const LatestTable = () => {
       dataField: 'todayCases',
       text:  <FormattedMessage id="today_cases" />,
       sort: true,
-      style:{backgroundColor: '#ffc8c8'},
+      style: (cell, row, rowIndex, colIndex) => {return (cell !== 0 && { backgroundColor: '#ffc8c8'}) }, 
       formatter: (cell) => { return(<span>
-        <strong>+ { cell.toLocaleString() } </strong>
-      </span>) ; }
+        {cell !== 0 ? <strong>+ { cell.toLocaleString() } </strong> : <strong>{cell}</strong>}
+      </span>) }
     },
     {
       dataField: 'deaths',
@@ -65,10 +65,10 @@ const LatestTable = () => {
       dataField: 'todayDeaths',
       text:  <FormattedMessage id="today_deaths" />,
       sort: true,
-      style:{backgroundColor: '#444f5a'},
+      style:(cell, row, rowIndex, colIndex) => {return (cell !== 0 && { backgroundColor: '#444f5a'}) },
       formatter: (cell) => { return(<span>
-        <strong style={ { color: 'white' } }>+ { cell } </strong>
-      </span>) ; }
+        {cell !== 0 ? <strong style={ { color: 'white' } }>+ { cell } </strong> : <strong>{cell}</strong> }
+      </span>)}
     },
     {
       dataField: 'recovered',
@@ -83,17 +83,18 @@ const LatestTable = () => {
       formatter: numberFormatter
     },
     {
+      dataField: 'active',
+      text:  <FormattedMessage id="active" />,
+      sort: true,
+      style: {fontWeight: 'bold'},
+      formatter: numberFormatter
+    },
+    {
       dataField: 'casesPerOneMillion',
       text:  <FormattedMessage id="cases_million" />,
       sort: true,
       style: {fontWeight: 'bold'}
-    },
-    {
-      dataField: 'deathsPerOneMillion',
-      text:  <FormattedMessage id="deaths_million" />,
-      sort: true,
-      style: {fontWeight: 'bold'}
-    },
+    }
   ];
 
   const defaultSorted = [{

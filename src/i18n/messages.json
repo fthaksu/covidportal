@@ -46,7 +46,8 @@
         "phone_warning" : "Please rotate your device!",
         "phone_warning_top" : "For a better view",
         "general_stats" : "Summary Stats",
-        "test" : "Test"
+        "test" : "Test",
+        "active" : "Active"
     },
     "tr": {
         "total_cases": "Toplam Vaka",
@@ -95,7 +96,8 @@
         "phone_warning_top" : "Daha iyi bir görünüm için",
         "github_repo" : "Covidst.com Projesine ait Github Sayfası",
         "general_stats" : "Genel Durum",
-        "test" : "Test"
+        "test" : "Test",
+        "active" : "Aktif Hasta"
 
 
     }
