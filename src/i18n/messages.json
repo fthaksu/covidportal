@@ -44,7 +44,9 @@
         "forecast_message2" : ".",
         "forecast_list": "<ul><li>What happens tomorrow in Turkey?</li><li>A week later, many people will be sick?</li><li>What will the pandemic be like after a month</li></ul> ",
         "phone_warning" : "Please rotate your device!",
-        "phone_warning_top" : "For a better view"
+        "phone_warning_top" : "For a better view",
+        "general_stats" : "Summary Stats",
+        "test" : "Test"
     },
     "tr": {
         "total_cases": "Toplam Vaka",
@@ -91,7 +93,9 @@
         "forecast_message2" : "gibi sorular için çeşitli sayısal veri analizi yöntemleri kullanılarak tahmin modelleri eklenecektir.",
         "phone_warning" : "Lütfen telefonunuzu döndürün!",
         "phone_warning_top" : "Daha iyi bir görünüm için",
-        "github_repo" : "Covidst.com Projesine ait Github Sayfası"
+        "github_repo" : "Covidst.com Projesine ait Github Sayfası",
+        "general_stats" : "Genel Durum",
+        "test" : "Test"
 
 
     }

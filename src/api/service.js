@@ -1,5 +1,6 @@
-import axios from "axios";
-import moment from "moment";
+import axios from 'axios';
+import moment from 'moment';
+
 
 const getTurkeyData = async () => {
     const result = await axios(`https://raw.githubusercontent.com/ozanerturk/covid19-turkey-api/master/dataset/timeline.json`);
@@ -72,7 +73,6 @@ const getWorldData = async (country) => {
     if (!country) {
         return [];
     }
-
     const result = await axios(`https://api.covid19api.com/total/dayone/country/${country}`);
 
     if (country ===  "US") { //US does not share recovery data to JH, the data is getting available source
@@ -80,7 +80,7 @@ const getWorldData = async (country) => {
         let usResultData = usResult.data;
         usRecoveryArr = Object.values(usResultData.timeline.recovered);
     }
-
+    
     let worldData = result.data;
     worldData = worldData.map((item, index, arr) => {
         if (country ===  "US" && usRecoveryArr) {
@@ -89,6 +89,13 @@ const getWorldData = async (country) => {
         item.Date = moment(item.Date).format("MMM Do");
         item.caseDeathRate = calculateRate(Number.parseInt(item.Deaths), Number.parseInt(item.Confirmed));
         item.recoveryRate = calculateRate(Number.parseInt(item.Recovered), Number.parseInt(item.Confirmed));
+
+        if (index > 0) {
+            
+            item.dailyConfirmed = item.Confirmed - arr[index - 1].Confirmed;
+            item.deaths = item.Deaths - arr[index - 1].Deaths;
+            item.recovered = item.Recovered - arr[index - 1].Recovered;
+        }
 
         return item;
     });
