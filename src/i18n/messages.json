@@ -47,7 +47,9 @@
         "phone_warning_top" : "For a better view",
         "general_stats" : "Summary Stats",
         "test" : "Test",
-        "active" : "Active"
+        "active" : "Active",
+        "select" : "Select...",
+        "compare" : "Compare"
     },
     "tr": {
         "total_cases": "Toplam Vaka",
@@ -65,6 +67,7 @@
         "today_deaths" : "Yeni Ölüm",
         "cases_million" : "Vaka / Milyon",
         "deaths_million" : "Ölü / Milyon",
+        "test_million" : "Test/Milyon",
         "home_page" : "Anasayfa",
         "map" : "Harita",
         "forecast" : "Tahminleme",
@@ -97,7 +100,9 @@
         "github_repo" : "Covidst.com Projesine ait Github Sayfası",
         "general_stats" : "Genel Durum",
         "test" : "Test",
-        "active" : "Aktif Hasta"
+        "active" : "Aktif Hasta",
+        "select" : "Seçiniz...",
+        "compare" : "Karşılaştırma"
 
 
     }

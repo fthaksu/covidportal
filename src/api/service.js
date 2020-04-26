@@ -103,6 +103,72 @@ const getWorldData = async (country) => {
 };
 
 
+const getCompareData = async (country1, country2) => {
+    if (!country1 && !country2) {
+        return [];
+    }
+    const result = await axios(`https://corona.lmao.ninja/v2/countries/${country1},${country2}`);
+    let compareData = result.data;
+    return compareData;
+};
+
+const getHistoricalData = async (country1, country2) => {
+    if (!country1 && !country2) {
+        return [];
+    }
+    const result = await axios(`https://corona.lmao.ninja/v2/historical/${country1},${country2}?lastdays=all`);
+    let historyData = result.data;
+    let activeGraphArray = [];
+    let deathGraphArray = [];
+    let recoveredGraphArray = [];
+    let activeArray = [];
+    let recoveryArray = [];
+    let deathArray = [];
+
+    historyData.forEach( (item, index) => {
+        activeGraphArray.push(item.timeline.cases)
+    } )
+
+    historyData.forEach( (item, index) => {
+        deathGraphArray.push(item.timeline.deaths)
+    } )
+
+    historyData.forEach( (item, index) => {
+        recoveredGraphArray.push(item.timeline.recovered)
+    } )
+
+    let graphArray1 = activeGraphArray[0];
+    let graphArray2 = activeGraphArray[1];
+
+    Object.entries(graphArray1).forEach(  ([key,value]) => {
+        var res = key.split("/");
+        var date = res[1] + "." + res[0] + "." + res[2];
+        activeArray.push({ "date":date, "country1" : value, "country2": graphArray2[key] !== undefined ? graphArray2[key] :0 })
+    })
+
+    graphArray1 = deathGraphArray[0];
+    graphArray2 = deathGraphArray[1];
+
+    Object.entries(graphArray1).forEach(  ([key,value]) => {
+        var res = key.split("/");
+        var date = res[1] + "." + res[0] + "." + res[2];
+        deathArray.push({ "date":date, "country1" : value, "country2": graphArray2[key] !== undefined ? graphArray2[key] :0 })
+    })
+
+
+    graphArray1 = recoveredGraphArray[0];
+    graphArray2 = recoveredGraphArray[1];
+
+    Object.entries(graphArray1).forEach(  ([key,value]) => {
+        var res = key.split("/");
+        var date = res[1] + "." + res[0] + "." + res[2];
+        recoveryArray.push({ "date":date, "country1" : value, "country2": graphArray2[key] !== undefined ? graphArray2[key] :0 })
+    })
+    
+    return {activeArray, deathArray, recoveryArray};
+};
+
+
 const calculateRate = (num, totalNum) => {
     if (totalNum ===  0) {
         return 0;
@@ -160,4 +226,4 @@ const turkishMotnhFormatter = (month) => {
 }
 
 
-export { getTurkeyData, getWorldData, getTurkeyStatsData };
+export { getTurkeyData, getWorldData, getTurkeyStatsData, getCompareData, getHistoricalData };

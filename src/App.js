@@ -5,8 +5,7 @@ import Home from './pages/Home.js';
 import Maps from "./pages/Maps.js";
 import Country from "./pages/Country.js";
 import Forecast from "./pages/Forecast"
-
-
+import Compare from "./pages/Compare.js";
 import "./App.css";
 
 
@@ -20,6 +19,7 @@ function App() {
           <Route exact path="/country/:id" component={Country} />
           <Route exact path="/about" component={About}/>
           <Route exact path="/forecast" component={Forecast}/>
+          <Route exact path="/compare/:id" component={Compare}/>
         </Switch>
       </Router>
     </div>
