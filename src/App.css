@@ -278,6 +278,7 @@ text-decoration:none;
   .social-share{
     display: table;
     margin: 0 auto;
+    margin-bottom: -35px;
   }
 }
 
