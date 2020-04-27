@@ -1,12 +1,22 @@
 import React, { useState, useEffect, memo } from 'react'
 import Layouts from '../components/Layouts';
 import CountryCard from '../components/CountryCard';
-import { Row, Col, Container, Table, Spinner, Button } from 'react-bootstrap';
+import { Row, Col, Container, Table, Spinner, Button, Card } from 'react-bootstrap';
 import { getCompareData, getHistoricalData } from '../api/service'
 import { FormattedMessage } from 'react-intl';
 import { CompareLineGraph } from '../components/Graph';
 import countryNames from "../i18n/countrynames.json";
-import countryNamesEN from "../i18n/countrynamesEN.json"
+import countryNamesEN from "../i18n/countrynamesEN.json";
+import {
+    WhatsappShareButton,
+    WhatsappIcon,
+    FacebookIcon,
+    FacebookShareButton,
+    TwitterShareButton,
+    TwitterIcon,
+    LinkedinShareButton,
+    LinkedinIcon
+  } from "react-share";
 
 
 const Compare = (props) => {
@@ -181,6 +191,18 @@ const Compare = (props) => {
                     </tr>
                 </tbody>
             </Table>
+            <div className="social-share">
+                <Card style={{width: "250px", margin: "0" }}>
+                    <Card.Header><FormattedMessage id="share"/></Card.Header>
+                    <Card.Body>
+                        <WhatsappShareButton url={window.location.href}><WhatsappIcon size={50} round /></WhatsappShareButton>
+                        <FacebookShareButton url={window.location.href}><FacebookIcon size={50} round /></FacebookShareButton>
+                        <TwitterShareButton url={window.location.href}><TwitterIcon size={50} round /></TwitterShareButton>
+                        <LinkedinShareButton url={window.location.href}><LinkedinIcon size={50} round /></LinkedinShareButton>
+                    </Card.Body>
+                </Card>
+            </div>
+            <br/>
             <br/>
             <Container className="country-container">
                 <Row>

@@ -35,6 +35,7 @@
         "intubated" : "Intubated",
         "intensive_care" : "Intensive Care",
         "case_test_rate" : "Case / Test",
+        "test_million" : "Test/Million",
         "death_case_rate" : "Death / Case",
         "case_test" : "Case / Test",
         "death_critical" : "Death / Critical",
@@ -49,7 +50,9 @@
         "test" : "Test",
         "active" : "Active",
         "select" : "Select...",
-        "compare" : "Compare"
+        "compare" : "Compare",
+        "share" : "SHARE"
+
     },
     "tr": {
         "total_cases": "Toplam Vaka",
@@ -102,7 +105,8 @@
         "test" : "Test",
         "active" : "Aktif Hasta",
         "select" : "Seçiniz...",
-        "compare" : "Karşılaştırma"
+        "compare" : "Karşılaştırma",
+        "share" : "PAYLAŞ"
 
 
     }

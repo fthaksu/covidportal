@@ -275,8 +275,19 @@ text-decoration:none;
     font-size: 30px !important;
   }
 
+  .social-share{
+    display: table;
+    margin: 0 auto;
+  }
 }
 
+@media (min-width: 900px) {
+  .social-share{
+    display: none;
+  }
+}
+
+ 
 
 .phone {
   margin: 0 auto;
