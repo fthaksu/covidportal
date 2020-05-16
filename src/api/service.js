@@ -6,14 +6,14 @@ const getTurkeyData = async () => {
     const result = await axios(`https://raw.githubusercontent.com/ozanerturk/covid19-turkey-api/master/dataset/timeline.json`);
     let turkeyData = result.data;
 
-    let tasks = Object.values(turkeyData); //aldığımız data JSONObject, JSONarray değil. O yüzden Object.values kullanmak gerekiyor.
+    let tasks = Object.values(turkeyData); //JSONObject to JSONArray. Object.values -> get an object values.
     tasks = tasks.map((item) => {
         var res = item.date.split("/");
         item.date = res[1] + "-" + res[0] + "-" + res[2];
         //item.Date = moment(item.date).format("MMM Do");
         item.Date = (res[0] + turkishMotnhFormatter(res[1]));
 
-        //veri çekilen yerde bu değerler string olarak tanımlı, convert etmek gerekiyor!.
+        //Datas all are string, must convert numbers
         item.Confirmed = Number.parseInt(item.totalCases);
         item.Recovered = Number.parseInt(item.totalRecovered);
         item.Deaths = Number.parseInt(item.totalDeaths);
