@@ -10,20 +10,23 @@ import axios from "axios";
 
 const LatestTable = () => {
   const [covidData, setCovidData] = useState([]); //this.state 
-
-
-  async function getData() {
-    const res = await axios('https://corona.lmao.ninja/v2/countries');
-    const data = res.data;
-    setCovidData(data);
-  }
+  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => { //componentDidMount, componentDidUpdate etc..
-    getData();
+    const fetchData = async () => {
+      setLoading(true);
+      const result = await axios(
+        `https://corona.lmao.ninja/v2/countries`,
+      );
+      setCovidData(result.data);
+      setLoading(false);
+    };
+ 
+    fetchData();
   }, []);
 
 
-  const numberFormatter = cell => {return(<span> <strong>{ cell.toLocaleString()}</strong></span>)};
+  const numberFormatter = cell => {return(<span> <strong>{ cell !== undefined && cell !== null ? cell.toLocaleString() : "" }</strong></span>)};
   const countryFormatter = cell  => {
     const language = navigator.language.split(/[-_]/)[0];  
     const iso2 = covidData.filter(item => item.country === cell).map(post => post.countryInfo.iso2) //filter map örneği
@@ -50,9 +53,9 @@ const LatestTable = () => {
       dataField: 'todayCases',
       text:  <FormattedMessage id="today_cases" />,
       sort: true,
-      style: (cell, row, rowIndex, colIndex) => {return (cell !== 0 && { backgroundColor: '#ffc8c8'}) }, 
+      style: (cell, row, rowIndex, colIndex) => {return ((cell !== 0 && cell !== null) && { backgroundColor: '#ffc8c8'}) }, 
       formatter: (cell) => { return(<span>
-        {cell !== 0 ? <strong>+ { cell.toLocaleString() } </strong> : <strong>{cell}</strong>}
+        {cell !== 0 && cell !== null ? <strong>+ { cell } </strong> : <strong>{cell}</strong>}
       </span>) }
     },
     {
@@ -65,9 +68,9 @@ const LatestTable = () => {
       dataField: 'todayDeaths',
       text:  <FormattedMessage id="today_deaths" />,
       sort: true,
-      style:(cell, row, rowIndex, colIndex) => {return (cell !== 0 && { backgroundColor: '#444f5a'}) },
+      style:(cell, row, rowIndex, colIndex) => {return ( (cell !== 0 && cell !== null) && { backgroundColor: '#444f5a'}) },
       formatter: (cell) => { return(<span>
-        {cell !== 0 ? <strong style={ { color: 'white' } }>+ { cell } </strong> : <strong>{cell}</strong> }
+        {cell !== 0  && cell !== null ? <strong style={ { color: 'white' } }>+ { cell } </strong> : <strong>{cell}</strong> }
       </span>)}
     },
     {
@@ -104,6 +107,8 @@ const LatestTable = () => {
 
   const rowStyle = { height: 45 , justifyContent: 'center',
   alignItems: 'center', verticalAlign: 'center'};
+
+  if (isLoading) return null; // or <Loading />
 
   return (
     <div className='anyClass'>
