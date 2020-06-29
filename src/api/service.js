@@ -91,7 +91,16 @@ const getWorldData = async (country) => {
         item.recoveryRate = calculateRate(Number.parseInt(item.Recovered), Number.parseInt(item.Confirmed));
 
         if (index > 0) {
-            
+            if(item.Recovered === 0){
+                    item.Recovered =  arr[index - 1].Recovered;
+            }
+            if(item.Deaths === 0){
+                item.Deaths = arr[index - 1].Deaths;
+            }
+            if(item.Confirmed === 0){
+                item.Confirmed = arr[index - 1].Confirmed;
+            }
+
             item.dailyConfirmed = item.Confirmed - arr[index - 1].Confirmed;
             item.deaths = item.Deaths - arr[index - 1].Deaths;
             item.recovered = item.Recovered - arr[index - 1].Recovered;
