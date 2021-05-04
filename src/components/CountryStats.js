@@ -15,7 +15,7 @@ const CountryStats = (props) => {
 
 
     async function getData() {
-        //TR datalarında sıkıntı olduğu için commetlendi.
+        //TR datalarında sıkıntı olduğu için commetlendi..
         // if (props.country === "TR") {  
         //     let data = await getTurkeyStatsData();
         //     setStatsData(data);
