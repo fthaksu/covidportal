@@ -15,16 +15,17 @@ const CountryStats = (props) => {
 
 
     async function getData() {
-        if (props.country === "TR") {
-            let data = await getTurkeyStatsData();
-            setStatsData(data);
-            setLoading(false);
-        } else {
+        //TR datalarında sıkıntı olduğu için commetlendi.
+        // if (props.country === "TR") {  
+        //     let data = await getTurkeyStatsData();
+        //     setStatsData(data);
+        //     setLoading(false);
+        // } else {
             const res = await axios(`https://corona.lmao.ninja/v2/countries/${props.country}`);
             const data = res.data;
             setStatsData(data);
             setLoading(false);
-        }
+        // }
 
     }
 
