@@ -14,13 +14,13 @@ const getTurkeyData = async () => {
         item.Date = (res[0] + turkishMotnhFormatter(res[1]));
 
         //Datas all are string, must convert numbers
-        item.Confirmed = Number.parseInt(item.totalCases);
+        item.Confirmed = Number.parseInt(item.totalPatients);
         item.Recovered = Number.parseInt(item.totalRecovered);
         item.Deaths = Number.parseInt(item.totalDeaths);
         item.dailyConfirmed = Number.parseInt(item.cases);
         item.test = Number.parseInt(item.tests);
         item.testCaseRate = calculateRate(Number.parseInt(item.cases), Number.parseInt(item.tests));
-        item.caseDeathRate = calculateRate(Number.parseInt(item.totalDeaths), Number.parseInt(item.totalCases));
+        item.caseDeathRate = calculateRate(Number.parseInt(item.totalDeaths), Number.parseInt(item.totalPatients));
         item.totalIntubated = Number.parseInt(item.totalIntubated);
         item.totalIntensiveCare = Number.parseInt(item.totalIntensiveCare);
 
